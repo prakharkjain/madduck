@@ -19,7 +19,7 @@
                     <a class="action type practice" href="#" title="Practice Quiz (click here to change this test type to - Free|Exam)">quiz type</a>
                 </li>
                 <li>
-                    <a class="action status published" href="#" title="Quiz Status (published | expired | on-going)">status</a>
+                    <a class="action status published last" href="#" title="Quiz Status (published | expired | on-going)">status</a>
                 </li>
             </ul>
             <div class="details">
@@ -29,6 +29,22 @@
         </li>
 		{% endfor %}
     </ul>
+{% endblock %}
+
+{% block sidebar0 %}
+	<div class="activitybox">
+		<h2 class="header"> announcment stream </h2>
+		<ul class="activitystream">
+			<li {% if forloop.last %}class="last"{% endif %}>
+				<ul class="activity-action">
+					<li><a href="#" class="action reply">close</a></li>
+				</ul>
+				<div class="details">
+					<span class="question">this is a new announcement, this is a new announcement, this is a new announcement, </span>
+				</div>
+			</li>
+		</ul>
+	</div>
 {% endblock %}
 
 {% block sidebar1 %}
