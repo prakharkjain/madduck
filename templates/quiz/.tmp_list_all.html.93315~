@@ -1,9 +1,0 @@
-{% extends "quiz/base.html" %}
- 
-{% load i18n %}
- 
-{% block head_title %}{% blocktrans %}All Quiz's{% endblocktrans %}{% endblock %}
- 
-{% block body %}
-
-{% endblock %}

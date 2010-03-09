@@ -38,6 +38,10 @@ ul.eventsstream > li {
     border-bottom: 1px solid #DDDDDD;
 }
 
+ul.quizlist > li:hover {
+	background: red;
+}
+
 /* 'display:inline' seems redundant definition; marked for removal. */
 ul.quizlist .details, ul.quizlist .actions {
     display: inline;
