@@ -2,14 +2,22 @@ body.quiz div#body {
     width: 1000px;
 }
 
+* {
+    font-size: 12px;
+}
+
 a {
     text-decoration: none;
 }
 
-ul, ul li {
+ul, ul li, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-	border: none;
+	font-weight: normal;
+}
+
+ul, ul li {
+    border: none;
     list-style-type: none;
 }
 
@@ -28,24 +36,23 @@ ul.ullist > li {
     padding: 5px 5px 5px;
     background: #F5F5F5;
     border: 1px solid #DDDDDD;
-	border-radius: 3px;
+    border-radius: 3px;
 }
 
-ul.activityst > li,
-ul.eventsst > li {
+ul.activityst > li, ul.eventsst > li {
     padding: 3px;
     margin: 0 0 -1px 0;
-	border-radius: 0px;
-	border-left: 0px;
-	border-right: 0px;
+    border-radius: 0px;
+    border-left: 0px;
+    border-right: 0px;
 }
 
 ul.ullist > li:hover {
-	background: #CCCCCC;
+    background: #CCCCCC;
     border-bottom: 1px solid #CCCCCC;
 }
 
-/* 'display:block' is NOT redundant definition; it controls the gap between two text lines, 
+/* 'display:block' is NOT redundant definition; it controls the gap between two text lines,
  * certainly i should use something else. */
 ul.ullist .details span {
     display: block;
@@ -54,26 +61,23 @@ ul.ullist .details span {
     font-weight: normal;
 }
 
-ul.activitystream .details span,
-ul.eventsstream .details span {
+ul.activitystream .details span, ul.eventsstream .details span {
     width: 250px;
     text-overflow: ellipsis;
 }
 
-ul.ullist .details h2 {
+ul.quizlt .details h2 a.title {
     font-size: 13px;
-    font-weight: normal;
-    margin: 5px 0 0 0;
 }
 
-ul.activityst .details h2,
-ul.eventsst .details h2 {
-    font-size: 12px;
+ul.ullist .details h2 a.title:hover,
+ul.ullist ul.ulaction li a.action:hover {
+    text-decoration: underline;
 }
 
 ul.ullist ul.ulaction {
     float: right;
-	margin-top: -3px;
+    margin-top: -3px;
 }
 
 ul.ullist ul.ulaction li {
@@ -98,16 +102,11 @@ ul.ullist ul.ulaction li a.last {
     border-right: none;
 }
 
-ul.ullist .details h2 a.title:hover,
-ul.ullist ul.ulaction li a.action:hover {
-	text-decoration: underline;
-}
-
 div.sidebar {
     float: left;
-	width: 260px;
+    width: 260px;
     padding-left: 15px;
-    border-left: 4px #DDDDDD solid;
+    border-left: 3px #DDDDDD solid;
 }
 
 div.box {
@@ -119,69 +118,66 @@ div.box {
 }
 
 div.box h2.header {
-    margin: 0;
     padding: 5px;
     font-size: 13px;
-    font-weight: normal;
-	background: #cccccc;
+    background: #cccccc;
     border-bottom: 1px solid #DDDDDD;
 }
 
 div.announcement {
-	background: #EAF2F5;
-	border-radius: 3px;
-	border: 1px solid #BEDCE7;
+    background: #EAF2F5;
+    border-radius: 3px;
+    border: 1px solid #BEDCE7;
 }
 
 div.announcement h2.header, div.announcement li, div.announcement li:hover {
-	background: #EAF2F5;
-	border-color: #BEDCE7;
+    background: #EAF2F5;
+    border-color: #BEDCE7;
 }
 
 ul.quizOverView li {
-	float: left;
-	font-size: 12px;
+    float: left;
+    font-size: 12px;
 }
 
 ul.quizOverView li.capsule {
-	height: 18px;
-	margin-left: -1px;
-	border-right: 1px #DDDDDD solid;
+    height: 18px;
+    margin-left: -1px;
+    border-right: 1px #DDDDDD solid;
 }
 
 ul.quizOverView li.capsule a.question {
-	padding:4px 3px;
+    padding: 4px 3px;
 }
 
-ul.quizOverView li.capsule div.status2,
-ul.quizOverView li.capsule div.status1,
-ul.quizOverView li.capsule div.status {
-	padding:2px;
-	background: green;
+ul.quizOverView li.capsule div.status2, ul.quizOverView li.capsule div.status1, ul.quizOverView li.capsule div.status {
+    padding: 2px;
+    background: green;
 }
+
 ul.quizOverView li.capsule div.status1 {
-	padding:2px;
-	background: red;
+    padding: 2px;
+    background: red;
 }
+
 ul.quizOverView li.capsule div.status2 {
-	padding:2px;
-	background: orange;
+    padding: 2px;
+    background: orange;
 }
 
 ul.quizOverView li.capsule a.question:hover {
-	background: #dddddd;
+    background: #dddddd;
 }
 
-ul.quizOverView li.details,
-ul.quizOverView li.settings {
-	width: auto;
-	padding: 2px 5px;
-	margin-left: -1px;
+ul.quizOverView li.details, ul.quizOverView li.settings {
+    width: auto;
+    padding: 2px 5px;
+    margin-left: -1px;
 }
 
 div.welcome {
-	padding: 10px;
-	background: #EAF2F5;
-	border-radius: 3px;
-	border: 1px solid #BEDCE7;
+    padding: 10px 10px 200px 10px;
+    background: #EAF2F5;
+    border-radius: 3px;
+    border: 1px solid #BEDCE7;
 }
