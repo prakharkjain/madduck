@@ -9,6 +9,7 @@ a {
 ul, ul li {
     margin: 0;
     padding: 0;
+	border: none;
     list-style-type: none;
 }
 
@@ -22,7 +23,7 @@ div.mainbody {
     margin-right: 20px;
 }
 
-ul.quizlist > li {
+ul.ullist > li {
     margin: 0 0 5px;
     padding: 5px 5px 5px;
     background: #F5F5F5;
@@ -30,31 +31,23 @@ ul.quizlist > li {
 	border-radius: 3px;
 }
 
-ul.activitystream > li,
-ul.eventsstream > li {
-    margin: 0 0 -1px 0;
+ul.activityst > li,
+ul.eventsst > li {
     padding: 3px;
-    background: #F5F5F5;
-    border-top: 1px solid #DDDDDD;
-    border-bottom: 1px solid #DDDDDD;
+    margin: 0 0 -1px 0;
+	border-radius: 0px;
+	border-left: 0px;
+	border-right: 0px;
 }
 
-ul.quizlist > li:hover,
-ul.activitystream > li:hover,
-ul.eventsstream > li:hover {
+ul.ullist > li:hover {
 	background: #CCCCCC;
     border-bottom: 1px solid #CCCCCC;
 }
 
-/* 'display:inline' seems redundant definition; marked for removal. */
-ul.quizlist .details, ul.quizlist .actions {
-    display: inline;
-}
-
-/* 'display:block' seems redundant definition; marked for removal. */
-ul.quizlist .details span, 
-ul.activitystream .details span,
-ul.eventsstream .details span {
+/* 'display:block' is NOT redundant definition; it controls the gap between two text lines, 
+ * certainly i should use something else. */
+ul.ullist .details span {
     display: block;
     font-size: 10px;
     font-style: italic;
@@ -67,50 +60,32 @@ ul.eventsstream .details span {
     text-overflow: ellipsis;
 }
 
-ul.quizlist .details h2, 
-ul.activitystream .details h2,
-ul.eventsstream .details h2 {
+ul.ullist .details h2 {
     font-size: 13px;
     font-weight: normal;
     margin: 5px 0 0 0;
 }
 
-ul.quizlist .details h2 a.title:hover {
-	text-decoration: underline;
-}
-
-ul.activitystream .details h2,
-ul.eventsstream .details h2 {
+ul.activityst .details h2,
+ul.eventsst .details h2 {
     font-size: 12px;
 }
 
-ul.quizlist ul.quiz-action, 
-ul.activitystream ul.activity-action,
-ul.eventsstream ul.events-action {
-    margin: 0px;
-	margin-top: -3px;
-    border: none;
+ul.ullist ul.ulaction {
     float: right;
-    background: #ffffff transparent;
+	margin-top: -3px;
 }
 
-ul.quizlist ul.quiz-action li, 
-ul.activitystream ul.activity-action li,
-ul.eventsstream ul.events-action li {
-    border: none;
+ul.ullist ul.ulaction li {
     display: none;
 }
 
-ul.quizlist > li:hover ul.quiz-action li, 
-ul.activitystream > li:hover ul.activity-action li,
-ul.eventsstream > li:hover ul.events-action li {
+ul.ullist > li:hover ul.ulaction li {
     border: none;
     display: inline;
 }
 
-ul.quizlist ul.quiz-action li a.action, 
-ul.activitystream ul.activity-action li a.action,
-ul.eventsstream ul.events-action li a.action {
+ul.ullist ul.ulaction li a.action {
     display: inline;
     color: #666666;
     font-size: 10px;
@@ -119,14 +94,12 @@ ul.eventsstream ul.events-action li a.action {
     border-right: 1px solid #666666;
 }
 
-ul.quizlist ul.quiz-action li a.last, 
-ul.activitystream ul.activity-action li a.last,
-ul.eventsstream ul.events-action li a.last {
+ul.ullist ul.ulaction li a.last {
     border-right: none;
 }
 
-ul.quizlist ul.quiz-action li a.action:hover,
-ul.activitystream ul.activity-action li a.action:hover {
+ul.ullist .details h2 a.title:hover,
+ul.ullist ul.ulaction li a.action:hover {
 	text-decoration: underline;
 }
 
@@ -137,20 +110,32 @@ div.sidebar {
     border-left: 4px #DDDDDD solid;
 }
 
-div.activitybox, div.eventsbox {
+div.box {
     color: #666666;
+    background: #F5F5F5;
     margin-bottom: 10px;
     border-radius: 3px;
     border: 1px solid #DDDDDD;
 }
 
-div.activitybox h2.header, div.eventsbox h2.header {
+div.box h2.header {
     margin: 0;
     padding: 5px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: normal;
-    background: #F5F5F5;
+	background: #cccccc;
     border-bottom: 1px solid #DDDDDD;
+}
+
+div.announcement {
+	background: #EAF2F5;
+	border-radius: 3px;
+	border: 1px solid #BEDCE7;
+}
+
+div.announcement h2.header, div.announcement li, div.announcement li:hover {
+	background: #EAF2F5;
+	border-color: #BEDCE7;
 }
 
 ul.quizOverView li {
@@ -194,3 +179,9 @@ ul.quizOverView li.settings {
 	margin-left: -1px;
 }
 
+div.welcome {
+	padding: 10px;
+	background: #EAF2F5;
+	border-radius: 3px;
+	border: 1px solid #BEDCE7;
+}

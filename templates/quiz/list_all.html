@@ -5,10 +5,10 @@
 {% block head_title %}{% blocktrans %}All Quiz's{% endblocktrans %}{% endblock %}
 
 {% block mainbody %}
-    <ul class="quizlist">
+    <ul class="ullist quizlt">
     	{% for item in list %}
         <li>
-            <ul class="quiz-action">
+            <ul class="ulaction quizaction">
                 <li>
                     <a class="action summary" href="#" title="Quiz Summary (click here to see a brief summary of this quiz)">summary</a>
                 </li>
@@ -32,11 +32,11 @@
 {% endblock %}
 
 {% block sidebar0 %}
-	<div class="activitybox">
+	<div class="box announcement">
 		<h2 class="header"> announcment stream </h2>
-		<ul class="activitystream">
+		<ul class="ullist activityst">
 			<li>
-				<ul class="activity-action">
+				<ul class="ulaction activityaction">
 					<li><a href="#" class="action reply last">close</a></li>
 				</ul>
 				<div class="details">
@@ -48,17 +48,17 @@
 {% endblock %}
 
 {% block sidebar1 %}
-	<div class="activitybox">
+	<div class="box activity">
 		<h2 class="header"> activity stream </h2>
-		<ul class="activitystream">
+		<ul class="ullist activityst">
 			{% for user in activity %}
 			<li>
-				<ul class="activity-action">
+				<ul class="ulaction activityaction">
 					<li><a href="#" class="action reply">reply</a></li>
 					<li><a href="ignore" class="action ignore last">ignore</a></li>
 				</ul>
 				<div class="details">
-					<h2><a href="#">Subhash K.</a></h2>
+					<h2><a href="#" class="title">Subhash K.</a></h2>
 					<span class="question">question question question question question question question question question </span>
 				</div>
 			</li>
@@ -68,17 +68,17 @@
 {% endblock %}
 	
 {% block sidebar2 %}
-	<div class="eventsbox">
+	<div class="box events">
 		<h2 class="header"> current tests</h2>
-		<ul class="eventsstream">
+		<ul class="ullist eventsst">
 			{% for event in events %}
 			<li>
-				<ul class="events-action">
+				<ul class="ulaction eventsaction">
 					<li><a href="#" class="action type">quiz type</a></li>
 					<li><a href="ignore" class="action status last">status</a></li>
 				</ul>
 				<div class="details">
-					<h2><a href="#" class="">{{ forloop.counter }} Unit Test.</a></h2>
+					<h2><a href="#" class="title">{{ forloop.counter }} Unit Test.</a></h2>
 					<span class="question">question paper summary/info.</span>
 				</div>
 			</li>
