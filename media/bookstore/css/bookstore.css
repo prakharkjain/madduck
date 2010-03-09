@@ -1,0 +1,27 @@
+table.narrow {
+  width:500px;
+}
+table.bookstore td {
+  vertical-align:top;
+  padding:5px;
+}
+table.bookstore td h2 {
+    margin: 0;
+    padding: 0;
+}
+table.bookstore td.vote {
+    width: 80px;
+    text-align: center;
+    vertical-align: middle;
+}
+.bookstore .even {
+    background-color: #FAFAFA;
+}
+.bookstore .odd {
+    background-color: #F3F3F3;
+}
+div.url {
+    color: #666;
+    font-size: 90%;
+    font-style: italic;
+}

@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block body_class %}bookstore{% endblock %}
+
+{% block subnav %}
+<ul class="float:left;">
+  <li><a href="{% url all_books %}">{% trans "All books" %}</a></li>
+  <li><a href="{% url add_book %}">{% trans "Add books" %}</a></li>
+  <li><a href="{% url your_books %}">{% trans "Your books" %}</a></li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,177 @@
+body.quiz div#body {
+    width: 1000px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ul li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+div.clear {
+    clear: both;
+}
+
+div.mainbody {
+    float: left;
+    width: 680px;
+    margin-right: 20px;
+}
+
+ul.quizlist > li {
+    margin: 0 0 5px;
+    padding: 5px 11px 0px;
+    background: #F5F5F5;
+    border: 1px solid #DDDDDD;
+}
+
+ul.activitystream > li,
+ul.eventsstream > li {
+    margin: 0;
+    padding: 3px;
+    background: #F5F5F5;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+/* 'display:inline' seems redundant definition; marked for removal. */
+ul.quizlist .details, ul.quizlist .actions {
+    display: inline;
+}
+
+/* 'display:block' seems redundant definition; marked for removal. */
+ul.quizlist .details span, 
+ul.activitystream .details span,
+ul.eventsstream .details span {
+    display: block;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+ul.activitystream .details span,
+ul.eventsstream .details span {
+    width: 250px;
+    text-overflow: ellipsis;
+}
+
+ul.quizlist .details h2, 
+ul.activitystream .details h2,
+ul.eventsstream .details h2 {
+    font-size: 15px;
+    font-weight: normal;
+    margin: 5px 0 0 0;
+}
+
+ul.activitystream .details h2,
+ul.eventsstream .details h2 {
+    font-size: 12px;
+}
+
+ul.quizlist ul.quiz-action, 
+ul.activitystream ul.activity-action,
+ul.eventsstream ul.events-action {
+    margin: 0px;
+    border: none;
+    float: right;
+    background: #ffffff transparent;
+}
+
+ul.quizlist ul.quiz-action li, 
+ul.activitystream ul.activity-action li,
+ul.eventsstream ul.events-action li {
+    border: none;
+    display: inline;
+}
+
+ul.activitystream > li.last,
+ul.eventsstream > li.last {
+    border: none;
+}
+
+ul.quizlist ul.quiz-action li a.action, 
+ul.activitystream ul.activity-action li a.action,
+ul.eventsstream ul.events-action li a.action {
+    display: inline;
+    color: #666666;
+    font-size: 10px;
+    border-radius: 3px;
+    margin: 0 !important;
+    padding: 2px 6px 2px 22px;
+    border: 1px solid #DDDDDD;
+    background: white url() no-repeat 0px 0px;
+}
+
+ul.quizlist ul.quiz-action li a.action:hover,
+ul.activitystream ul.activity-action li a.action:hover {
+	background: #DDEEFF;
+    border: 1px solid #BFBFBF;
+}
+
+div.sidebar {
+    float: left;
+	width: 260px;
+    padding-left: 15px;
+    border-left: 4px #DDDDDD solid;
+}
+
+div.activitybox, div.eventsbox {
+    color: #666666;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #DDDDDD;
+}
+
+div.activitybox h2.header, div.eventsbox h2.header {
+    margin: 0;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    background: #F5F5F5;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+ul.quizOverView li {
+	float: left;
+	font-size: 12px;
+}
+
+ul.quizOverView li.capsule {
+	height: 18px;
+	margin-left: -1px;
+	border-right: 1px #DDDDDD solid;
+}
+
+ul.quizOverView li.capsule a.question {
+	padding:4px 3px;
+}
+
+ul.quizOverView li.capsule div.status2,
+ul.quizOverView li.capsule div.status1,
+ul.quizOverView li.capsule div.status {
+	padding:2px;
+	background: green;
+}
+ul.quizOverView li.capsule div.status1 {
+	padding:2px;
+	background: red;
+}
+ul.quizOverView li.capsule div.status2 {
+	padding:2px;
+	background: orange;
+}
+
+ul.quizOverView li.capsule a.question:hover {
+	background: #dddddd;
+}
+
+ul.quizOverView li.details,
+ul.quizOverView li.settings {
+	width: auto;
+	padding: 2px 5px;
+	margin-left: -1px;
+}
+

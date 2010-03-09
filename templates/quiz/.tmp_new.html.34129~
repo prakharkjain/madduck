@@ -1,0 +1,47 @@
+{% extends "quiz/base.html" %}
+ 
+{% load i18n %}
+ 
+{% block head_title %}{% blocktrans %}Create a New Quiz{% endblocktrans %}{% endblock %}
+ 
+{% block mainbody %}
+	<div class="quizOverViewContainer">
+		<ul class="quizOverView">
+			<li class="capsule details">details</li>
+			{% for question in questions%}
+				<li class="capsule">
+					<a class="question" href="#">{{ forloop.counter }}</a>
+					<div class="status"></div>
+				</li>
+			{% endfor %}
+			<li class="capsule settings">settings</li>
+		</ul>
+	</div>
+	
+	<div class="questionEditorContainer">
+		
+	</div>
+{% endblock %}
+
+{% block sidebar1 %}
+{% endblock %}
+
+{% block sidebar2 %}
+	<div class="eventsbox">
+		<h2 class="header">unit test #1.</h2>
+		<ul class="eventsstream">
+			{% for event in events %}
+			<li {% if forloop.last %}class="last"{% endif %}>
+				<ul class="events-action">
+					<li><a href="#" class="action type">multi choice</a></li>
+				</ul>
+				<div class="details">
+					<h2><a href="#" class="">{{ forloop.counter }} question.</a></h2>
+					<span class="question">question summary/info.</span>
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}
+
