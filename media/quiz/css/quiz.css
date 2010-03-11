@@ -28,7 +28,11 @@ div.clear {
 
 div.mainbody {
     margin-left: 5px;
-    margin-right: 305px;
+    margin-right: 295px;
+}
+
+body.quiz div.expand div.mainbody {
+    margin-right: 95px;
 }
 
 ul.ullist > li {
@@ -39,6 +43,7 @@ ul.ullist > li {
     border-radius: 3px;
 }
 
+/* @TODO refactor/optimize */
 ul.sidebarst > li {
     padding: 3px;
     margin: 0 0 -1px 0;
@@ -72,11 +77,13 @@ ul.ullist ul.ulaction {
     margin-top: -3px;
 }
 
+/* @TODO refactor/optimize */
 ul.ullist ul.ulaction li {
     display: inline;
     visibility: hidden;
 }
 
+/* @TODO refactor/optimize */
 ul.ullist > li:hover ul.ulaction li {
     visibility: inherit;
 }
@@ -90,15 +97,32 @@ ul.ullist ul.ulaction li a.action {
     border-right: 1px solid #666666;
 }
 
-ul.ullist ul.ulaction li a.last {
-    border-right: none;
-}
-
 div.sidebar {
     float: right;
     width: 260px;
-    padding: 0 15px;
-    border-left: 3px #DDDDDD solid;
+    padding: 0 5px 0 12px;
+}
+
+body.quiz div.expand div.sidebar {
+    width: 60px;
+}
+
+div.collapsible {
+	float: left;
+	margin-left: -12px;
+	height: 400px;
+	padding: 0 2px;
+    background: #DDDDDD;
+	cursor: e-resize;
+}
+
+body.quiz div.expand div.collapsible {
+	cursor: w-resize;
+}
+
+.collapsible-border {
+	border-left: 1px #666666 solid;
+	border-right: 1px #666666 solid;
 }
 
 ul.box {
@@ -128,11 +152,13 @@ ul.announcement li.header {
     padding-bottom: 1px;
 }
 
+/* @TODO refactor/optimize */
 ul.announcement li, ul.announcement li:hover {
     border: none;
     background: #EAF2F5;
 }
 
+/* @TODO refactor/optimize */
 ul.announcement li.header h2 {
     padding-bottom: 3px;
 }
@@ -144,6 +170,7 @@ ul.welcome {
     border: 1px solid #BEDCE7;
 }
 
+/* @TODO refactor/optimize */
 ul.welcome li, ul.welcome li:hover {
     border: none;
     background: none;
@@ -166,33 +193,35 @@ ul.welcome .details span {
     margin-bottom: 100px;
 }
 
-ul.quizOverView li {
-    float: left;
-    font-size: 12px;
+/** QUIZ OVERVIEW START HERE **/
+div.quizOverViewContainer {
+    height: 30px;
+    margin: 5px 0;
+    padding: 5px 0;
 }
 
-ul.quizOverView li.capsule {
+/* @TODO refactor/optimize */
+ul.quizOverView li {
+    float: left;
+}
+
+ul.quizOverView li.capsule a.question {
     height: 18px;
+    padding: 5px 4px;
     margin-left: -1px;
     border-right: 1px #DDDDDD solid;
 }
 
-ul.quizOverView li.capsule a.question {
-    padding: 4px 3px;
-}
-
 ul.quizOverView li.capsule div.status2, ul.quizOverView li.capsule div.status1, ul.quizOverView li.capsule div.status {
-    padding: 2px;
+    padding: 3px;
     background: green;
 }
 
 ul.quizOverView li.capsule div.status1 {
-    padding: 2px;
     background: red;
 }
 
 ul.quizOverView li.capsule div.status2 {
-    padding: 2px;
     background: orange;
 }
 
@@ -201,17 +230,57 @@ ul.quizOverView li.capsule a.question:hover {
 }
 
 ul.quizOverView li.buttons {
-    width: auto;
-    padding: 2px 5px;
+	float: right;
+}
+
+ul.quizOverView li.details, 
+ul.quizOverView li.settings {
+	float: left;
+}
+
+ul.quizOverView li.buttons a {
+    padding: 5px;
+    color: #666666;
+    border-radius: 4px;
+    border: 1px #DDDDDD solid;
+    background: #F5F5F5;
+}
+
+ul.quizOverView li.buttons a.left {
+	margin-right: 0px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+ul.quizOverView li.buttons a.right {
     margin-left: -1px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 div#delete_quiz {
-	width: 300px;
+    width: 300px;
+}
+/** QUIZ OVERVIEW ENDS HERE **/
+
+div.buttons a.yes, div.buttons a.no {
+    margin-right: 15px;
+    text-decoration: underline;
 }
 
-div.buttons a.yes,
-div.buttons a.no {
-	margin-right: 15px;
-	text-decoration: underline;
+/* @TODO refactor, make it generic. */
+ul.ullist ul.ulaction li a.last {
+    border-right: none;
 }
+
+/** QUIZ TEMPLATES STARTS HERE **/
+ul.welcome li.template {
+    float: left;
+}
+
+ul.welcome li.template a.thumb img {
+    margin: 3px;
+    padding: 3px;
+	border: 1px #DDDDDD solid;
+}
+/** QUIZ TEMPLATES ENDS HERE **/

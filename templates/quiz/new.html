@@ -7,23 +7,50 @@
 {% block mainbody %}
 	<div class="quizOverViewContainer">
 		<ul class="quizOverView">
-			<li class="capsule buttons details">details</li>
+			<li class="capsule buttons details"><a class="left" href="#" title="change the details quiz">details</a></li>
 			{% for question in questions%}
 				<li class="capsule">
 					<a href="#" class="question" title="{{ forloop.counter }}, not completed yet.">{{ forloop.counter }}</a>
 					<div class="status"></div>
-					<div class="status1"></div>
-					<div class="status2"></div>
 				</li>
 			{% endfor %}
-			<li class="capsule buttons settings"><a href="#">settings</a></li>
-			<li class="capsule buttons preview"><a href="#">preview</a></li>
-			<li class="capsule buttons download"><a href="#">download</a></li>
+			<li class="capsule buttons settings"><a class="right" href="#" title="change settings for the quiz">settings</a></li>
+			<li class="capsule buttons publish"><a class="right" href="#" title="quiz is ready to be published">publish</a></li>
+			<li class="capsule buttons preview"><a class="left" href="#" title="see a preview of quiz">preview</a></li>
 		</ul>
+		<div class="clear"></div>
 	</div>
 	
 	<div class="questionEditorContainer">
-		
+		<ul class="ullist welcome">
+			<li>
+				<ul class="ulaction">
+					<li><a href="#" class="action close last">close</a></li>
+				</ul>
+				<div class="details">
+					<span>
+						<br/><br/>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla
+					</span>
+					<div>
+						<ul>
+							<li class="template"><a class="thumb" href="#" title="blank template"><img src="{{ STATIC_URL }}img/img1-thumb.jpg"></a></li>
+							<li class="template"><a class="thumb" href="#" title="cat template"><img src="{{ STATIC_URL }}img/img2-thumb.jpg"></a></li>
+							<li class="template"><a class="thumb" href="#" title="gre template"><img src="{{ STATIC_URL }}img/img3-thumb.jpg"></a></li>
+							<li class="template"><a class="thumb" href="#" title="school exam template"><img src="{{ STATIC_URL }}img/img4-thumb.jpg"></a></li>
+							<li class="template"><a class="thumb" href="#" title="rapid quiz template"><img src="{{ STATIC_URL }}img/img5-thumb.jpg"></a></li>
+						</ul>
+					</div>
+					<div class="quizform blank">
+						<form>
+							<input type="text" value="quiz name">
+							<input type="text" value="subject">
+							<input type="text" value="date">
+						</form>
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
 {% endblock %}
 
@@ -49,7 +76,7 @@
 		{% for event in events %}
 		<li>
 			<ul class="ulaction questionlist">
-				<li><a href="#" class="action type">multi choice</a></li>
+				<li><a href="#" class="action type last">multi choice</a></li>
 			</ul>
 			<div class="details">
 				<h2><a href="#" class="">{{ forloop.counter }} question.</a></h2>
