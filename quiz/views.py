@@ -36,7 +36,7 @@ def quiz_details(request, quiz_id):
   
 def quiz_new(request):
   """ returns a template to create a new quiz. """
-  events, questions = range(10), range(20)
+  events, questions = range(10), range(30)
   return render_to_response('quiz/new.html', {
         "events" : events,
         "questions" : questions

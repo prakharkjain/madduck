@@ -108,21 +108,21 @@ body.quiz div.expand div.sidebar {
 }
 
 div.collapsible {
-	float: left;
-	margin-left: -12px;
-	height: 400px;
-	padding: 0 2px;
+    float: left;
+    margin-left: -12px;
+    height: 400px;
+    padding: 0 2px;
     background: #DDDDDD;
-	cursor: e-resize;
+    cursor: e-resize;
 }
 
 body.quiz div.expand div.collapsible {
-	cursor: w-resize;
+    cursor: w-resize;
 }
 
 .collapsible-border {
-	border-left: 1px #666666 solid;
-	border-right: 1px #666666 solid;
+    border-left: 1px #666666 solid;
+    border-right: 1px #666666 solid;
 }
 
 ul.box {
@@ -195,47 +195,20 @@ ul.welcome .details span {
 
 /** QUIZ OVERVIEW START HERE **/
 div.quizOverViewContainer {
-    height: 30px;
+    height: 60px;
     margin: 5px 0;
     padding: 5px 0;
 }
 
 /* @TODO refactor/optimize */
-ul.quizOverView li {
+ul.quizOverView li.capsule {
     float: left;
+    padding: 5px 0;
+    margin: 0 0 10px 0;
 }
 
-ul.quizOverView li.capsule a.question {
-    height: 18px;
-    padding: 5px 4px;
-    margin-left: -1px;
-    border-right: 1px #DDDDDD solid;
-}
-
-ul.quizOverView li.capsule div.status2, ul.quizOverView li.capsule div.status1, ul.quizOverView li.capsule div.status {
-    padding: 3px;
-    background: green;
-}
-
-ul.quizOverView li.capsule div.status1 {
-    background: red;
-}
-
-ul.quizOverView li.capsule div.status2 {
-    background: orange;
-}
-
-ul.quizOverView li.capsule a.question:hover {
-    background: #dddddd;
-}
-
-ul.quizOverView li.buttons {
-	float: right;
-}
-
-ul.quizOverView li.details, 
-ul.quizOverView li.settings {
-	float: left;
+ul.quizOverView li.last {
+    float: none;
 }
 
 ul.quizOverView li.buttons a {
@@ -246,32 +219,55 @@ ul.quizOverView li.buttons a {
     background: #F5F5F5;
 }
 
+ul.quizOverView li.capsule a.question {
+    height: 18px;
+    padding: 5px 4px;
+    margin-left: -1px;
+    border-right: 1px #DDDDDD solid;
+}
+
+ul.quizOverView li.capsule a.question:hover {
+    background: #dddddd;
+}
+
 ul.quizOverView li.buttons a.left {
-	margin-right: 0px;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
+    margin-right: 0px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 ul.quizOverView li.buttons a.right {
     margin-left: -1px;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
+ul.quizOverView li.capsule div.status {
+    padding: 3px;
+    background: green;
+}
+/** QUIZ OVERVIEW ENDS HERE **/
+
+
+/** QUIZ DELETE FORM STARTS HERE. **/
 div#delete_quiz {
     width: 300px;
 }
-/** QUIZ OVERVIEW ENDS HERE **/
 
 div.buttons a.yes, div.buttons a.no {
     margin-right: 15px;
     text-decoration: underline;
 }
+/** QUIZ DELETE FORM ENDS HERE. **/
+
+
 
 /* @TODO refactor, make it generic. */
 ul.ullist ul.ulaction li a.last {
     border-right: none;
 }
+
+
 
 /** QUIZ TEMPLATES STARTS HERE **/
 ul.welcome li.template {
@@ -281,6 +277,7 @@ ul.welcome li.template {
 ul.welcome li.template a.thumb img {
     margin: 3px;
     padding: 3px;
-	border: 1px #DDDDDD solid;
+    border: 1px #DDDDDD solid;
 }
+
 /** QUIZ TEMPLATES ENDS HERE **/
