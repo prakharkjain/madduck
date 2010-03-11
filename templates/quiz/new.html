@@ -10,7 +10,7 @@
 			<li class="capsule details">details</li>
 			{% for question in questions%}
 				<li class="capsule">
-					<a class="question" href="#">{{ forloop.counter }}</a>
+					<a href="#" class="question" title="{{ forloop.counter }}, not completed yet.">{{ forloop.counter }}</a>
 					<div class="status"></div>
 					<div class="status1"></div>
 					<div class="status2"></div>
@@ -25,25 +25,35 @@
 	</div>
 {% endblock %}
 
+{% block sidebar0 %}
+	<ul class="ullist box announcement">
+		<li class="header">
+			<ul class="ulaction activityaction">
+				<li><a href="#" class="action close last">close</a></li>
+			</ul>
+			<h2> announcment stream </h2>
+			<div class="details">
+				<span class="question">this is a new announcement, this is a new announcement, this is a new announcement, </span>
+			</div>
+		</li>
+	</ul>
+{% endblock %}
+
 {% block sidebar1 %}
+	<ul class="ullist box sidebarst questionlist">
+		<li class="header">
+			<h2>Quiz #3</h2>
+		</li>
+		{% for event in events %}
+		<li>
+			<ul class="ulaction questionlist">
+				<li><a href="#" class="action type">multi choice</a></li>
+			</ul>
+			<div class="details">
+				<h2><a href="#" class="">{{ forloop.counter }} question.</a></h2>
+				<span class="question">question summary/info.</span>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
 {% endblock %}
-
-{% block sidebar2 %}
-	<div class="eventsbox">
-		<h2 class="header">unit test #1.</h2>
-		<ul class="eventsstream">
-			{% for event in events %}
-			<li {% if forloop.last %}class="last"{% endif %}>
-				<ul class="events-action">
-					<li><a href="#" class="action type">multi choice</a></li>
-				</ul>
-				<div class="details">
-					<h2><a href="#" class="">{{ forloop.counter }} question.</a></h2>
-					<span class="question">question summary/info.</span>
-				</div>
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
-{% endblock %}
-

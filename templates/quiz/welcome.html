@@ -5,65 +5,72 @@
 {% block head_title %}{% blocktrans %}All Quiz's{% endblocktrans %}{% endblock %}
 
 {% block mainbody %}
-	<div class="welcome">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla ante, porta et tincidunt sed, posuere nec enim. Mauris odio augue, pharetra et rutrum a, dignissim in nisl. Integer vel nibh tortor, at euismod risus. Phasellus tincidunt mauris nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam non viverra eros. Phasellus elit diam, molestie et porttitor nec, vestibulum eu nibh. Vestibulum turpis neque, porta ut sagittis quis, sagittis at metus. In eget dolor nisl, vel dapibus tellus. Vestibulum varius varius elit quis placerat. In et velit dolor, sed egestas mi. Suspendisse sed dapibus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium justo ut justo rhoncus sagittis. Aenean sit amet viverra justo. Nam arcu odio, ornare at vehicula ac, facilisis eu mi. Sed ut neque tellus, a eleifend tortor.
-		<br/><br/>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla
-	</div>
+	<ul class="ullist welcome">
+		<li>
+			<ul class="ulaction">
+				<li><a href="#" class="action close last">close</a></li>
+			</ul>
+			<div class="details">
+				<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla ante, porta et tincidunt sed, posuere nec enim. Mauris odio augue, pharetra et rutrum a, dignissim in nisl. Integer vel nibh tortor, at euismod risus. Phasellus tincidunt mauris nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam non viverra eros. Phasellus elit diam, molestie et porttitor nec, vestibulum eu nibh. Vestibulum turpis neque, porta ut sagittis quis, sagittis at metus. In eget dolor nisl, vel dapibus tellus. Vestibulum varius varius elit quis placerat. In et velit dolor, sed egestas mi. Suspendisse sed dapibus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium justo ut justo rhoncus sagittis. Aenean sit amet viverra justo. Nam arcu odio, ornare at vehicula ac, facilisis eu mi. Sed ut neque tellus, a eleifend tortor.
+					<br/><br/>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla
+				</span>
+			</div>
+		</li>
+	</ul>
 {% endblock %}
 
 {% block sidebar0 %}
-	<div class="box announcement">
-		<h2 class="header"> announcment stream </h2>
-		<ul class="ullist activityst">
-			<li>
-				<ul class="ulaction activityaction">
-					<li><a href="#" class="action reply last">close</a></li>
-				</ul>
-				<div class="details">
-					<span class="question">this is a new announcement, this is a new announcement, this is a new announcement, </span>
-				</div>
-			</li>
-		</ul>
-	</div>
+	<ul class="ullist box announcement">
+		<li class="header">
+			<ul class="ulaction activityaction">
+				<li><a href="#" class="action close last">close</a></li>
+			</ul>
+			<h2> announcment stream </h2>
+			<div class="details">
+				<span class="question">this is a new announcement, this is a new announcement, this is a new announcement, </span>
+			</div>
+		</li>
+	</ul>
 {% endblock %}
 
 {% block sidebar1 %}
-	<div class="box activity">
-		<h2 class="header"> activity stream </h2>
-		<ul class="ullist activityst">
-			{% for user in activity %}
-			<li>
-				<ul class="ulaction activityaction">
-					<li><a href="#" class="action reply">reply</a></li>
-					<li><a href="ignore" class="action ignore last">ignore</a></li>
-				</ul>
-				<div class="details">
-					<h2><a href="#" class="title">Subhash K.</a></h2>
-					<span class="question">question question question question question question question question question </span>
-				</div>
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
+	<ul class="ullist box sidebarst">
+		<li class="header">
+			<h2> activity stream </h2>
+		</li>
+		{% for user in activity %}
+		<li>
+			<ul class="ulaction activityaction">
+				<li><a href="#" class="action reply">reply</a></li>
+				<li><a href="ignore" class="action ignore last">ignore</a></li>
+			</ul>
+			<div class="details">
+				<h2><a href="#" class="title">Subhash K.</a></h2>
+				<span class="question">question question question question question question question question question </span>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
 {% endblock %}
 	
 {% block sidebar2 %}
-	<div class="box events">
-		<h2 class="header"> current tests</h2>
-		<ul class="ullist eventsst">
-			{% for event in events %}
-			<li>
-				<ul class="ulaction eventsaction">
-					<li><a href="#" class="action type">quiz type</a></li>
-					<li><a href="ignore" class="action status last">status</a></li>
-				</ul>
-				<div class="details">
-					<h2><a href="#" class="title">{{ forloop.counter }} Unit Test.</a></h2>
-					<span class="question">question paper summary/info.</span>
-				</div>
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
+	<ul class="ullist box sidebarst">
+		<li class="header">
+			<h2>current tests</h2>
+		</li>
+		{% for event in events %}
+		<li>
+			<ul class="ulaction eventsaction">
+				<li><a href="#" class="action type">quiz type</a></li>
+				<li><a href="ignore" class="action status last">status</a></li>
+			</ul>
+			<div class="details">
+				<h2><a href="#" class="title">{{ forloop.counter }} Unit Test.</a></h2>
+				<span class="question">question paper summary/info.</span>
+			</div>
+		</li>
+		{% endfor %}
+	</ul>
 {% endblock %}

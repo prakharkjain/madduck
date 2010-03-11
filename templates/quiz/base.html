@@ -6,6 +6,7 @@
 
 {% block subnav %}
 <ul>
+  <li><a href="{% url quiz_welcome %}">{% trans "Welcome Quiz" %}</a></li>
   <li><a href="{% url quiz_all %}">{% trans "All Quiz's" %}</a></li>
   <li><a href="{% url quiz_new %}">{% trans "Add New Quiz" %}</a></li>
 </ul>
@@ -13,13 +14,13 @@
 
 
 {% block body %}
-	<div class="mainbody">
-		{% block mainbody %}{% endblock %}
-	</div>
 	<div class="sidebar">
 		{% block sidebar0 %}{% endblock %}
 		{% block sidebar1 %}{% endblock %}
 		{% block sidebar2 %}{% endblock %}
+	</div>
+	<div class="mainbody">
+		{% block mainbody %}{% endblock %}
 	</div>
 	<div class="clear"></div>
 {% endblock %}

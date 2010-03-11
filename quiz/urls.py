@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('quiz.views',
     url(r'^$', 'quiz_all', name='quiz_all'),
-    url(r'^welcome/$', 'quiz_welcome', name='quiz_first_time'),
+    url(r'^welcome/$', 'quiz_welcome', name='quiz_welcome'),
     url(r'^(?P<quiz_id>\d+)/$', 'quiz_details', name='quiz_details'),
 
     url(r'^new/$', 'quiz_new', name='quiz_new'),

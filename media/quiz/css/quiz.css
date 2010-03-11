@@ -1,7 +1,8 @@
 body.quiz div#body {
     width: 1000px;
+	padding: 10px 0;
+	position: relative;
 }
-
 * {
     font-size: 12px;
 }
@@ -13,7 +14,7 @@ a {
 ul, ul li, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-	font-weight: normal;
+    font-weight: normal;
 }
 
 ul, ul li {
@@ -26,9 +27,8 @@ div.clear {
 }
 
 div.mainbody {
-    float: left;
-    width: 680px;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 305px;
 }
 
 ul.ullist > li {
@@ -39,7 +39,7 @@ ul.ullist > li {
     border-radius: 3px;
 }
 
-ul.activityst > li, ul.eventsst > li {
+ul.sidebarst > li {
     padding: 3px;
     margin: 0 0 -1px 0;
     border-radius: 0px;
@@ -49,7 +49,6 @@ ul.activityst > li, ul.eventsst > li {
 
 ul.ullist > li:hover {
     background: #CCCCCC;
-    border-bottom: 1px solid #CCCCCC;
 }
 
 /* 'display:block' is NOT redundant definition; it controls the gap between two text lines,
@@ -58,20 +57,13 @@ ul.ullist .details span {
     display: block;
     font-size: 10px;
     font-style: italic;
-    font-weight: normal;
-}
-
-ul.activitystream .details span, ul.eventsstream .details span {
-    width: 250px;
-    text-overflow: ellipsis;
 }
 
 ul.quizlt .details h2 a.title {
     font-size: 13px;
 }
 
-ul.ullist .details h2 a.title:hover,
-ul.ullist ul.ulaction li a.action:hover {
+ul.ullist .details h2 a.title:hover, ul.ullist ul.ulaction li a.action:hover {
     text-decoration: underline;
 }
 
@@ -81,12 +73,12 @@ ul.ullist ul.ulaction {
 }
 
 ul.ullist ul.ulaction li {
-    display: none;
+    display: inline;
+    visibility: hidden;
 }
 
 ul.ullist > li:hover ul.ulaction li {
-    border: none;
-    display: inline;
+    visibility: inherit;
 }
 
 ul.ullist ul.ulaction li a.action {
@@ -103,13 +95,13 @@ ul.ullist ul.ulaction li a.last {
 }
 
 div.sidebar {
-    float: left;
+    float: right;
     width: 260px;
-    padding-left: 15px;
+    padding: 0 15px;
     border-left: 3px #DDDDDD solid;
 }
 
-div.box {
+ul.box {
     color: #666666;
     background: #F5F5F5;
     margin-bottom: 10px;
@@ -117,28 +109,68 @@ div.box {
     border: 1px solid #DDDDDD;
 }
 
-div.box h2.header {
+ul.box li.header {
     padding: 5px;
-    font-size: 13px;
     background: #cccccc;
-    border-bottom: 1px solid #DDDDDD;
 }
 
-div.announcement {
+ul.box li.header h2 {
+    font-size: 13px;
+}
+
+ul.announcement {
+    background: #EAF2F5;
+    border-color: #BEDCE7;
+}
+
+ul.announcement li.header {
+    background: #EAF2F5;
+    padding-bottom: 1px;
+}
+
+ul.announcement li, ul.announcement li:hover {
+	border: none;
+    background: #EAF2F5;
+}
+
+ul.announcement li.header h2 {
+    padding-bottom: 3px;
+}
+
+ul.welcome {
+    padding: 10px 10px 200px 10px;
     background: #EAF2F5;
     border-radius: 3px;
     border: 1px solid #BEDCE7;
 }
 
-div.announcement h2.header, div.announcement li, div.announcement li:hover {
-    background: #EAF2F5;
-    border-color: #BEDCE7;
+ul.welcome li, ul.welcome li:hover {
+    border: none;
+    background: none;
+}
+
+ul.welcome ul.ulaction {
+    float: right;
+    margin-top: -10px;
+    margin-right: -10px;
+}
+
+ul.welcome .details span {
+    font-size: 12px;
+    font-style: normal;
+}
+
+.quiz-summary {
+	display: none;
+	padding: 5px 0 10px 0;
+	margin-bottom: 100px;
 }
 
 ul.quizOverView li {
     float: left;
     font-size: 12px;
 }
+
 
 ul.quizOverView li.capsule {
     height: 18px;
@@ -175,9 +207,3 @@ ul.quizOverView li.details, ul.quizOverView li.settings {
     margin-left: -1px;
 }
 
-div.welcome {
-    padding: 10px 10px 200px 10px;
-    background: #EAF2F5;
-    border-radius: 3px;
-    border: 1px solid #BEDCE7;
-}

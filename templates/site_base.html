@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}bookstore/css/bookstore.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}quiz/css/quiz.css" />
 
-    <link rel="stylesheet" href="{{ STATIC_URL }}tipsy-0.1.7/src/stylesheet/tipsy.css" />
-    <script src="{{ STATIC_URL }}tipsy-0.1.7/src/javascript/jquery.tipsy.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}js/plugins/tipsy/stylesheets/tipsy.css" />
     {% block extra_head %}{% endblock %}
 {% endblock %}
 
@@ -51,4 +50,9 @@
     - <a href="{% url privacy %}">{% trans "Privacy Policy" %}</a>
     - <a href="{% url dmca %}">{% trans "DMCA Notice" %}</a>
 </div>
+{% endblock %}
+
+{% block extra_body %}
+    <script src="{{ STATIC_URL }}js/plugins/tipsy/javascripts/jquery.tipsy.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}quiz/js/quiz.js" type="text/javascript"></script>
 {% endblock %}
