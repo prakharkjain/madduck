@@ -1,7 +1,7 @@
 body.quiz div#body {
     width: 1000px;
-	padding: 10px 0;
-	position: relative;
+    padding: 10px 0;
+    position: relative;
 }
 * {
     font-size: 12px;
@@ -129,7 +129,7 @@ ul.announcement li.header {
 }
 
 ul.announcement li, ul.announcement li:hover {
-	border: none;
+    border: none;
     background: #EAF2F5;
 }
 
@@ -161,16 +161,15 @@ ul.welcome .details span {
 }
 
 .quiz-summary {
-	display: none;
-	padding: 5px 0 10px 0;
-	margin-bottom: 100px;
+    display: none;
+    padding: 5px 0 10px 0;
+    margin-bottom: 100px;
 }
 
 ul.quizOverView li {
     float: left;
     font-size: 12px;
 }
-
 
 ul.quizOverView li.capsule {
     height: 18px;
@@ -201,9 +200,18 @@ ul.quizOverView li.capsule a.question:hover {
     background: #dddddd;
 }
 
-ul.quizOverView li.details, ul.quizOverView li.settings {
+ul.quizOverView li.buttons {
     width: auto;
     padding: 2px 5px;
     margin-left: -1px;
 }
 
+div#delete_quiz {
+	width: 300px;
+}
+
+div.buttons a.yes,
+div.buttons a.no {
+	margin-right: 15px;
+	text-decoration: underline;
+}

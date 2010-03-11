@@ -16,7 +16,7 @@
                     <a id="south" class="action edit" href="#" title="Edit Quiz (click here to edit/ modify this quiz)">edit</a>
                 </li>
                 <li>
-                    <a id="south" class="action delete" href="#" title="Delete Quiz (click here to delete this quiz)">delete</a>
+                    <a id="south" class="action delete" href="#delete_quiz" title="Delete Quiz (click here to delete this quiz)">delete</a>
                 </li>
                 <li>
                     <a id="south" class="action type practice" href="#" title="Practice Quiz (click here to change this test type to - Free|Exam)">quiz type</a>
@@ -35,6 +35,19 @@
         </li>
 		{% endfor %}
     </ul>
+	
+	<div id="forms_container" style="display:none;">
+		<div id="delete_quiz">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla
+			</p>
+			<div class="buttons">
+				<a class="yes" href="#">Yes, Delete.</a>
+				<a class="no" href="#">No, Don't Delete Quiz.</a>
+			</div>
+		</div>
+	</div>
+	
 {% endblock %}
 
 {% block sidebar0 %}
