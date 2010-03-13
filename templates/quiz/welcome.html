@@ -12,10 +12,16 @@
 			</ul>
 			<div class="details">
 				<span>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla ante, porta et tincidunt sed, posuere nec enim. Mauris odio augue, pharetra et rutrum a, dignissim in nisl. Integer vel nibh tortor, at euismod risus. Phasellus tincidunt mauris nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam non viverra eros. Phasellus elit diam, molestie et porttitor nec, vestibulum eu nibh. Vestibulum turpis neque, porta ut sagittis quis, sagittis at metus. In eget dolor nisl, vel dapibus tellus. Vestibulum varius varius elit quis placerat. In et velit dolor, sed egestas mi. Suspendisse sed dapibus erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium justo ut justo rhoncus sagittis. Aenean sit amet viverra justo. Nam arcu odio, ornare at vehicula ac, facilisis eu mi. Sed ut neque tellus, a eleifend tortor.
 					<br/><br/>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla
 				</span>
+			</div>
+			<div>
+				<ul>
+					<li class="template"><a class="thumb" href="#"><img src="{{ STATIC_URL }}img/arrow-left.png"></a></li>
+					<li class="template"><a class="thumb" href="#" title="rapid quiz template"><img src="{{ STATIC_URL }}img/img5-thumb.jpg"></a></li>
+					<li class="template"><a class="thumb" href="#"><img src="{{ STATIC_URL }}img/arrow-right.png"></a></li>
+				</ul>
 			</div>
 		</li>
 	</ul>
@@ -40,18 +46,18 @@
 		<li class="header">
 			<h2> activity stream </h2>
 		</li>
-		{% for user in activity %}
+		{## % for user in activity % ##}
 		<li>
 			<ul class="ulaction activityaction">
-				<li><a href="#" class="action reply">reply</a></li>
-				<li><a href="ignore" class="action ignore last">ignore</a></li>
+				<li><a href="#" class="action help">help</a></li>
+				<li><a href="#" class="action close last">close</a></li>
 			</ul>
 			<div class="details">
-				<h2><a href="#" class="title">Subhash K.</a></h2>
-				<span class="question">question question question question question question question question question </span>
+				<h2><a href="#" class="title">Welcome</a></h2>
+				<span class="question" style="margin: 45px 0;">[ welcome to the activity stream-box. ]</span>
 			</div>
 		</li>
-		{% endfor %}
+		{## % endfor % ##}
 	</ul>
 {% endblock %}
 	
@@ -60,17 +66,17 @@
 		<li class="header">
 			<h2>current tests</h2>
 		</li>
-		{% for event in events %}
+		{## % for event in events % ##}
 		<li>
 			<ul class="ulaction eventsaction">
-				<li><a href="#" class="action type">quiz type</a></li>
-				<li><a href="ignore" class="action status last">status</a></li>
+				<li><a href="#" class="action help">help</a></li>
+				<li><a href="#" class="action close last">close</a></li>
 			</ul>
 			<div class="details">
-				<h2><a href="#" class="title">{{ forloop.counter }} Unit Test.</a></h2>
-				<span class="question">question paper summary/info.</span>
+				<h2><a href="#" class="title">Welcome.</a></h2>
+				<span class="question" style="margin: 45px 0;">[ welcome to the current stream-box. ]</span>
 			</div>
 		</li>
-		{% endfor %}
+		{## % endfor % ##}
 	</ul>
 {% endblock %}

@@ -55,11 +55,21 @@ def quiz_delete(request, quiz_id):
   """ handles the delete for a given quiz. """
   return render_to_response('quiz/delete.html')
 
-def quiz_welcome(request):
+def welcome(request):
   """ returns a quiz page, when visited for the first time by a user."""
   elements, activity, events = range(10), range(5), range(5)
   
   return render_to_response('quiz/welcome.html', {
+        "list" : elements,
+        "events" : events,
+        "activity" : activity,
+      }, context_instance=RequestContext(request))
+  
+def quiz_welcome(request):
+  """ returns a quiz page, when visited for the first time by a user."""
+  elements, activity, events = range(10), range(5), range(5)
+  
+  return render_to_response('quiz/welcome-quiz.html', {
         "list" : elements,
         "events" : events,
         "activity" : activity,
