@@ -1,14 +1,16 @@
 /* GENERAL */
 html, body {
-    height: 100%;
 }
 
 body {
-    background-color: #FFF;
-    margin: 0;
+    clear: both;
+    width: 1000px;
     color: #333;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 10pt;
+    margin: 0 auto;
+    padding: 0;
+    font-family: "verdana";
+	background: #c0c0c0;
+    position: relative;
 }
 
 a, a:visited {
@@ -43,16 +45,15 @@ h1 {
 #body {
     clear: both;
     margin: 0 auto;
-    padding: 10px;
-    width: 800px;
+    padding: 60px 10px 10px 10px;
 }
 
 #footer {
-    color: #999; /* footer text colour */
+    color: #999;
+	background: #DDFFEE;
     margin: 50px auto;
     padding: 10px;
     clear: both;
-    width: 800px;
 }
 
 #footer a, #footer a:visited {
@@ -92,15 +93,11 @@ h1 {
 /* end hide from ie5-mac */
 /* HEADER */
 #tabhead {
-    background: #ffffff;
-    border-bottom: 1px solid #000; /* tab border */
     position: relative;
 }
 
 #tabhead .logo {
     height: 80px;
-    padding-left: 5px;
-    padding-top: 0;
 }
 
 #tabhead .logo img {
@@ -112,15 +109,12 @@ h1 {
     position: absolute;
     top: 6px;
     right: 15px;
-    color: #DEF; /* login bar text colour */
 }
 
 #tabhead .login a, #tabhead .login a:visited {
-    color: #DEF; /* login bar link colour */
 }
 
 #tabhead .login a:hover {
-    color: #FFF; /* login bar link hover colour */
 }
 
 #locale_switcher {
@@ -287,4 +281,8 @@ div.right_panel {
     width: 200px;
     float: right;
     z-index: 999;
+}
+
+.background {
+		background: #ffffff;
 }
