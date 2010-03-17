@@ -40,7 +40,16 @@ def quiz_new(request):
   return render_to_response('quiz/new.html', {
         "events" : events,
         "questions" : questions
-  	}, context_instance=RequestContext(request))
+      }, context_instance=RequestContext(request))
+
+#marked for removal; this is a temporary function.
+def quiz_new1(request):
+  """ returns a template to create a new quiz. """
+  events, questions = range(10), range(20)
+  return render_to_response('quiz/new1.html', {
+        "events" : events,
+        "questions" : questions
+      }, context_instance=RequestContext(request))
   
 def quiz_save(request):
   """ returns a template to create a new quiz. """

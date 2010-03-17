@@ -7,6 +7,7 @@ urlpatterns = patterns('quiz.views',
     url(r'^(?P<quiz_id>\d+)/$', 'quiz_details', name='quiz_details'),
 
     url(r'^new/$', 'quiz_new', name='quiz_new'),
+    url(r'^new1/$', 'quiz_new1', name='quiz_new1'),
     url(r'^save/$', 'quiz_save', name='quiz_save'),
 
     url(r'^edit/(?P<quiz_id>\d+)/$', 'quiz_edit', name='quiz_edit'),
