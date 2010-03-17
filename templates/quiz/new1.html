@@ -7,18 +7,16 @@
 {% block mainbody %}
 	<div class="quizOverViewContainer">
 		<ul class="quizOverView">
-			<li class="capsule buttons details">details</li>
+			<li class="capsule buttons"><a class="right" href="#">details</a></li>
 			{% for question in questions%}
 				<li class="capsule">
 					<a href="#" class="question" title="{{ forloop.counter }}, not completed yet.">{{ forloop.counter }}</a>
 					<div class="status"></div>
-					<div class="status1"></div>
-					<div class="status2"></div>
 				</li>
 			{% endfor %}
-			<li class="capsule buttons settings"><a href="#">settings</a></li>
-			<li class="capsule buttons preview"><a href="#">preview</a></li>
-			<li class="capsule buttons download"><a href="#">download</a></li>
+			<li class="capsule buttons action"><a href="#">download</a></li>
+			<li class="capsule buttons action"><a href="#">publish</a></li>
+			<li class="capsule buttons action"><a href="#">preview</a></li>
 		</ul>
 	</div>
 	

@@ -211,30 +211,13 @@ ul.quizOverView li.capsule a.question {
     border-right: 1px #DDDDDD solid;
 }
 
-ul.quizOverView li.capsule div.status2, ul.quizOverView li.capsule div.status1, ul.quizOverView li.capsule div.status {
+ul.quizOverView li.capsule div.status {
     padding: 3px;
     background: green;
 }
 
-ul.quizOverView li.capsule div.status1 {
-    background: red;
-}
-
-ul.quizOverView li.capsule div.status2 {
-    background: orange;
-}
-
 ul.quizOverView li.capsule a.question:hover {
     background: #dddddd;
-}
-
-ul.quizOverView li.buttons {
-	float: right;
-}
-
-ul.quizOverView li.details, 
-ul.quizOverView li.settings {
-	float: left;
 }
 
 ul.quizOverView li.buttons a {
@@ -246,13 +229,17 @@ ul.quizOverView li.buttons a {
     background: #F5F5F5;
 }
 
-ul.quizOverView li.buttons a.left {
+ul.quizOverView li.action {
+	float: right;
+}
+
+ul.quizOverView li.buttons a.right {
 	margin-right: 0px;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
 
-ul.quizOverView li.buttons a.right {
+ul.quizOverView li.buttons a.left {
     margin-left: -1px;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
