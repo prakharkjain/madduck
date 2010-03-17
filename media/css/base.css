@@ -9,7 +9,7 @@ body {
     margin: 0 auto;
     padding: 0;
     font-family: "verdana";
-	background: #c0c0c0;
+	background: #c0c0c0 url(/site_media/static/img/image-url.gif);
     position: relative;
 }
 
