@@ -146,7 +146,6 @@ ul.announcement {
 }
 
 ul.announcement li.header, 
-ul.announcement li.header:hover,
 ul.announcement li.header h2 {
     border: none;
     padding-bottom: 2px;
