@@ -27,7 +27,7 @@ ul.sidebarst > li {
 }
 
 ul.ullist > li:hover {
-    background: #CCCCCC;
+    background: #e0e0e0;
 }
 
 /* 'display:block' is NOT redundant definition; it controls the gap between two text lines,
@@ -131,15 +131,6 @@ ul.announcement li.header div.collapsed {
 	display: none;
 } 
 
-body.quiz div.expand ul.announcement li.header h2,
-body.quiz div.expand ul.announcement li.header div.details {
-	display: none;
-}
-
-body.quiz div.expand ul.announcement li.header div.collapsed {
-	display: block;
-}
-
 ul.announcement li.header, 
 ul.announcement li.header h2 {
     border: none;
@@ -222,7 +213,6 @@ ul.quizOverView li.buttons a:hover {
 }
 
 ul.quizOverView li.buttons a.right {
-    margin-right: -1px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 	-moz-border-radius-topright: 4px;
@@ -230,7 +220,6 @@ ul.quizOverView li.buttons a.right {
 }
 
 ul.quizOverView li.buttons a.left {
-    margin-left: -1px;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 	-moz-border-radius-topleft: 4px;
