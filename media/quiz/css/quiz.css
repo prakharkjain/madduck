@@ -1,26 +1,3 @@
-* {
-    font-size: 12px;
-}
-
-a {
-    text-decoration: none;
-}
-
-ul, ul li, h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-}
-
-ul, ul li {
-    border: none;
-    list-style-type: none;
-}
-
-div.clear {
-    clear: both;
-}
-
 div.mainbody {
     margin-left: 5px;
     margin-right: 295px;
@@ -143,6 +120,19 @@ ul.box li.header h2 {
 ul.announcement {
     background: #EAF2F5;
     border-color: #BEDCE7;
+}
+
+ul.announcement li.header div.collapsed {
+	display: none;
+} 
+
+body.quiz div.expand ul.announcement li.header h2,
+body.quiz div.expand ul.announcement li.header div.details {
+	display: none;
+}
+
+body.quiz div.expand ul.announcement li.header div.collapsed {
+	display: block;
 }
 
 ul.announcement li.header, 

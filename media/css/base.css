@@ -17,6 +17,26 @@ a, a:visited {
     color: #13C;
 }
 
+* {
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ul li, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ul, ul li {
+    border: none;
+    list-style-type: none;
+}
+
+
 img {
     border: 0;
 }
