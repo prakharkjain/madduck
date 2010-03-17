@@ -172,7 +172,7 @@ ul.welcome .details span {
 /** QUIZ OVERVIEW START HERE **/
 div.quizOverViewContainer {
     height: 30px;
-    margin: 5px 0;
+    margin: 0 0 5px 0;
     padding: 5px 0;
 }
 
@@ -247,3 +247,19 @@ ul.welcome li.template a.thumb img {
 	border: 1px #DDDDDD solid;
 }
 /** QUIZ TEMPLATES ENDS HERE **/
+
+
+div.questionEditorContainer textarea {
+	margin: 10px 0 20px 0;
+	width: 99%;
+	max-width: 99%;
+	display: block;
+}
+
+div.questionEditorContainer textarea.question {
+	height: 60px;
+}
+
+div.questionEditorContainer textarea.answer {
+	height: 150px;
+}
