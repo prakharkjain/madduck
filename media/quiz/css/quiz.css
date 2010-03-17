@@ -71,6 +71,11 @@ ul.ullist ul.ulaction li a.action {
     border-right: 1px solid #666666;
 }
 
+/* @TODO refactor, make it generic. */
+ul.ullist ul.ulaction li a.last {
+    border-right: none;
+}
+
 div.sidebar {
     float: right;
     width: 260px;
@@ -234,11 +239,6 @@ div#delete_quiz {
 div.buttons a.yes, div.buttons a.no {
     margin-right: 15px;
     text-decoration: underline;
-}
-
-/* @TODO refactor, make it generic. */
-ul.ullist ul.ulaction li a.last {
-    border-right: none;
 }
 
 /** QUIZ TEMPLATES STARTS HERE **/
