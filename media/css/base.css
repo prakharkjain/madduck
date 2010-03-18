@@ -9,14 +9,13 @@ body {
     margin: 0 auto;
     padding: 0;
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	background: #c0c0c0 url(/site_media/static/img/image-url.gif);
+    background: #c0c0c0 url(/site_media/static/img/image-url.gif);
     position: relative;
 }
 
 a, a:visited {
     color: #13C;
 }
-
 * {
     font-size: 12px;
 }
@@ -35,7 +34,6 @@ ul, ul li {
     border: none;
     list-style-type: none;
 }
-
 
 img {
     border: 0;
@@ -70,7 +68,7 @@ h1 {
 
 #footer {
     color: #999;
-	background: #DDFFEE;
+    background: #DDFFEE;
     margin: 50px auto;
     padding: 10px;
     clear: both;
@@ -177,14 +175,16 @@ form th {
     text-align: left;
 }
 
-form.signup input[type =
-"submit"], form.login input[type = "submit"] {
+form.quiz_new input[type ="submit"], 
+form.quiz_new input[type ="reset"], 
+form.signup input[type ="submit"], 
+form.login input[type = "submit"] {
     margin: 20px 0;
     font-size: 14pt;
 }
 
-input[type =
-"text"], input[type = "password"], textarea {
+input[type ="text"], 
+input[type = "password"], textarea {
     padding: 3px;
     margin: 3px;
     border: solid 1px #C6C6C6;
@@ -304,5 +304,5 @@ div.right_panel {
 }
 
 .background {
-		background: #ffffff;
+    background: #ffffff;
 }

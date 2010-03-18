@@ -33,7 +33,6 @@ ul.ullist > li:hover {
 /* 'display:block' is NOT redundant definition; it controls the gap between two text lines,
  * certainly i should use something else. */
 ul.ullist .details span {
-    display: block;
     font-size: 10px;
     font-style: italic;
 }

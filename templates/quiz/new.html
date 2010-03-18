@@ -1,6 +1,7 @@
 {% extends "quiz/base.html" %}
  
 {% load i18n %}
+{% load uni_form_tags %}
  
 {% block head_title %}{% blocktrans %}Create a New Quiz{% endblocktrans %}{% endblock %}
 
@@ -34,22 +35,16 @@
 						<br/><br/>
 					</span>
 					<div class="quizform blank">
-						<form class="login uniForm">
-							<fieldset class="inlineLabels">
-								<label for="id_quizname">quiz name : </label><input type="text" id="id_quizname" name="quizname" value="quiz name"><br/>
-								<label for="id_subject">subject : </label><input type="text" id="id_subject" name="subject" value="subject"><br/>
-								<label for="id_date">date : </label><input type="text" id="id_date" name="date" value="date"><br/>
-								<label for="id_class">class : </label><input type="text" id="id_class" name="class" value="class"><br/>
-								<label for="id_totalmarks">total marks : </label><input type="text" id="id_totalmarks" name="totalmarks" value="total marks"><br/>
-								<label for="id_totalquestions">total questions : </label><input type="text" id="id_totalquestions" name="totalquestions" value="total questions"><br/>
-								<label for="id_quizduration">quiz duration : </label><input type="text" id="id_quizduration" name="quizduration" value="duration of the quiz"><br/>
-								<label for="id_quiznote">quiz note : </label><input type="text" id="id_quiznote" name="quiznote" value="quiz note"><br/>
-								
-								<input type="button" value="start adding questions">
-								<input type="reset" value="reset"><br/>
-							</fieldset>
-							
-						</form>
+					    <form class="quiz_new uniForm" method="POST" action="{% url quiz_new %}">
+					        {% csrf_token %}
+					        <fieldset class="inlineLabels">
+					            {{ quiz_form|as_uni_form }}
+					            <div class="form_block">
+								<input type="submit" value="{% trans "Add Questions &raquo;" %}">
+								<input type="reset" value="{% trans "reset" %}">
+					            </div>
+					        </fieldset>
+					    </form>
 						<ul>
 							<li class="template"><a class="thumb" href="#" title="blank template"><img src="{{ STATIC_URL }}img/black.png"></a></li>
 							<li class="template"><a class="thumb" href="#" title="template #2"><img src="{{ STATIC_URL }}img/blue.png"></a></li>

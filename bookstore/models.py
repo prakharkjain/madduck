@@ -43,10 +43,8 @@ class Book(models.Model):
 		
 		return path.join(path.dirname(self.coverart.url), folder, path.basename(self.coverart.path)).replace('\\', '/')
 	
-	
 	def get_thumb_url(self):
 		return self._get_thumb_url('thumb_100_100', (100,100))
-	
 	
 	def thumb(self):
 		""" get thumb <a>. """
@@ -57,7 +55,6 @@ class Book(models.Model):
 		else:
 			return '<img src="%s" />' % (link)
 	thumb.allow_tags = True
-
 
 	def fullpicture(self):
 		""" get full picture <a> """

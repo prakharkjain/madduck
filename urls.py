@@ -35,7 +35,6 @@ urlpatterns = patterns("",
 
     #my applications.
     (r"^bookstore/", include("bookstore.urls")),
-    (r"^questionbank/", include("questionbank.urls")),
     (r"^quiz/", include("quiz.urls")),
     
     (r"^admin/", include(admin.site.urls)),
