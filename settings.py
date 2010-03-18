@@ -198,8 +198,8 @@ else:
 
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG
-CONTACT_EMAIL = "feedback@example.com"
-SITE_NAME = "Pinax"
+CONTACT_EMAIL = "contact@3bandar.org"
+SITE_NAME = "Taughtoise"
 LOGIN_URL = "/account/login/"
 LOGIN_REDIRECT_URLNAME = "what_next"
 
