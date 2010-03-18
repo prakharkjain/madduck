@@ -159,7 +159,6 @@ INSTALLED_APPS = [
     "signup_codes",
     "about",
     "bookstore",
-    "questionbank",
     "quiz",
 ]
 
