@@ -7,8 +7,8 @@ from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
 
-from quiz.models import Quiz
-from quiz.forms import QuizForm
+from quiz.models import Quiz, Question
+from quiz.forms import QuizForm, QuestionForm
 
 # Create your views here.
 
@@ -41,7 +41,6 @@ def quiz_details(request, quiz_id):
   """ returns the details of a given quiz-id."""
   return render_to_response('quiz/details.html')
   
-  
 @login_required
 def quiz_new(request):
    """ returns a template to create a new quiz. """
@@ -70,13 +69,29 @@ def quiz_new(request):
 #marked for removal; this is a temporary function.
 @login_required
 def quiz_new1(request):
-  """ returns a template to create a new quiz. """
-  events, questions = range(10), range(20)
-  return render_to_response('quiz/new1.html', {
-        "events" : events,
-        "questions" : questions
+   """ returns a template to create a new quiz. """
+   if request.method == "POST":
+      question_form = QuestionForm(request.POST, request.FILES)
+      if question_form.is_valid():
+         new_question = question_form.save(commit=False)
+         new_question.save()
+         return HttpResponseRedirect(reverse("quiz.views.quiz_new1"))
+         
+   #GET Request
+   else:
+        question_form = QuestionForm()
+        return render_to_response('quiz/new1.html', {
+                "question_form" : question_form,
+                "events" : range(10),
+                "questions" : range(20)
+        }, context_instance=RequestContext(request))
+
+   return render_to_response('quiz/new1.html', {
+        "question_form" : question_form,
+        "events" : range(10),
+        "questions" : range(20)
       }, context_instance=RequestContext(request))
-  
+   
 @login_required
 def quiz_save(request):
   """ returns a template to create a new quiz. """
@@ -114,4 +129,3 @@ def quiz_welcome(request):
         "events" : events,
         "activity" : activity,
       }, context_instance=RequestContext(request))
-  

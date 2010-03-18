@@ -1,7 +1,8 @@
 {% extends "quiz/base.html" %}
  
 {% load i18n %}
- 
+{% load uni_form_tags %}
+
 {% block head_title %}{% blocktrans %}Create a New Quiz{% endblocktrans %}{% endblock %}
  
 {% block mainbody %}
@@ -21,13 +22,16 @@
 	</div>
 	
 	<div class="questionEditorContainer">
-		<form>
-			<textarea class="question">this is where you type a question.</textarea>
-			<textarea class="answer">this is where you type an answer.</textarea>
-			
-			<input type="reset" value="reset">
-			<input type="button" value="save & next">
-		</form>
+        <form class="quiz_new uniForm" method="POST" action="{% url quiz_new1 %}">
+            {% csrf_token %}
+            <fieldset class="inlineLabels">
+                {{ question_form|as_uni_form }}
+                <div class="form_block">
+                <input type="submit" value="{% trans "Save Question &raquo;" %}">
+                <input type="reset" value="{% trans "reset" %}">
+                </div>
+            </fieldset>
+        </form>
 	</div>
 {% endblock %}
 

@@ -262,3 +262,15 @@ div.questionEditorContainer textarea.question {
 div.questionEditorContainer textarea.answer {
 	height: 150px;
 }
+
+
+
+/* to be moved to a much appropriate place. */
+.uniForm .inlineLabels textarea {
+    max-width: 99%;
+    width: 99%;
+}
+
+#id_qText {
+	height: 70px;
+}
