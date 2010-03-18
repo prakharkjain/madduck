@@ -22,7 +22,7 @@
 	</div>
 	
 	<div class="questionEditorContainer">
-        <form class="quiz_new uniForm" method="POST" action="{% url quiz_new1 %}">
+        <form class="quiz_new uniForm" method="POST" action="{% url question_new %}">
             {% csrf_token %}
             <fieldset class="inlineLabels">
                 {{ question_form|as_uni_form }}

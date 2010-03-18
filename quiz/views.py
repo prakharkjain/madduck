@@ -49,7 +49,7 @@ def quiz_new(request):
       if quiz_form.is_valid():
          new_quiz = quiz_form.save(commit=False)
          new_quiz.save()
-         return HttpResponseRedirect(reverse("quiz.views.quiz_new1"))
+         return HttpResponseRedirect(reverse("quiz.views.question_new"))
          
    #GET Request
    else:
@@ -68,14 +68,14 @@ def quiz_new(request):
 
 #marked for removal; this is a temporary function.
 @login_required
-def quiz_new1(request):
+def question_new(request):
    """ returns a template to create a new quiz. """
    if request.method == "POST":
       question_form = QuestionForm(request.POST, request.FILES)
       if question_form.is_valid():
          new_question = question_form.save(commit=False)
          new_question.save()
-         return HttpResponseRedirect(reverse("quiz.views.quiz_new1"))
+         return HttpResponseRedirect(reverse("quiz.views.question_new"))
          
    #GET Request
    else:
