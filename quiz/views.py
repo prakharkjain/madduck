@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
+@login_required
 def quiz_all(request):
   """ returns a list of all the quiz created by a user."""
   elements, activity, events = range(10), range(5), range(5)
@@ -19,6 +20,9 @@ def quiz_all(request):
         "activity" : activity,
   	}, context_instance=RequestContext(request))
 
+
+#marked for removal.
+@login_required
 def quiz_first_time(request):
   """ returns a quiz page, when visited for the first time by a user."""
   elements, activity, events = range(10), range(5), range(5)
@@ -29,11 +33,13 @@ def quiz_first_time(request):
         "activity" : activity,
       }, context_instance=RequestContext(request))
   
+@login_required
 def quiz_details(request, quiz_id):
   """ returns the details of a given quiz-id."""
   return render_to_response('quiz/details.html')
   
   
+@login_required
 def quiz_new(request):
   """ returns a template to create a new quiz. """
   events, questions = range(10), range(20)
@@ -43,6 +49,7 @@ def quiz_new(request):
       }, context_instance=RequestContext(request))
 
 #marked for removal; this is a temporary function.
+@login_required
 def quiz_new1(request):
   """ returns a template to create a new quiz. """
   events, questions = range(10), range(20)
@@ -51,19 +58,23 @@ def quiz_new1(request):
         "questions" : questions
       }, context_instance=RequestContext(request))
   
+@login_required
 def quiz_save(request):
   """ returns a template to create a new quiz. """
   return render_to_response('quiz/save.html')
   
   
+@login_required
 def quiz_edit(request, quiz_id):
   """ returns the given quiz preloaded, ready for edit. """
   return render_to_response('quiz/edit.html')
   
+@login_required
 def quiz_delete(request, quiz_id):
   """ handles the delete for a given quiz. """
   return render_to_response('quiz/delete.html')
 
+@login_required
 def welcome(request):
   """ returns a quiz page, when visited for the first time by a user."""
   elements, activity, events = range(10), range(5), range(5)
@@ -74,6 +85,7 @@ def welcome(request):
         "activity" : activity,
       }, context_instance=RequestContext(request))
   
+@login_required
 def quiz_welcome(request):
   """ returns a quiz page, when visited for the first time by a user."""
   elements, activity, events = range(10), range(5), range(5)
