@@ -16,9 +16,10 @@ from quiz.forms import QuizForm, QuestionForm
 def quiz_all(request):
   """ returns a list of all the quiz created by a user."""
   elements, activity, events = range(10), range(5), range(5)
-  
+  quiz_list = Quiz.objects.all().order_by('-date')
+
   return render_to_response('quiz/list_all.html', {
-        "list" : elements,
+        "quiz_list" : quiz_list,
         "events" : events,
         "activity" : activity,
   	}, context_instance=RequestContext(request))

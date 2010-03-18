@@ -11,16 +11,16 @@ from django.db.models.base import get_absolute_url
 # Create your models here.
 class Quiz(models.Model):
     """ Quiz Model: name, subject, date, class, total_marks, total_questions, duration, note """
-    classs = models.CharField(_("class"), max_length=255) 
-    subject = models.CharField(_("subject"), max_length=255)
+    classs = models.CharField(_("Class"), max_length=255) 
+    subject = models.CharField(_("Subject"), max_length=255)
     
-    total_marks = models.IntegerField(_("total_marks"))
-    total_questions = models.IntegerField(_("total_questions"))
+    total_marks = models.IntegerField(_("Total Marks"))
+    total_questions = models.IntegerField(_("Total Questions"))
 #    duration = models.TimeField()
     
-    name = models.CharField(_("name"), max_length=500)
-    note = models.CharField(_("note"), max_length=500)
-    date = models.DateTimeField(_("date"), default=datetime.now)
+    name = models.CharField(_("Quiz Name"), max_length=500)
+    note = models.CharField(_("Quiz Note"), max_length=500)
+    date = models.DateTimeField(_("Date"), default=datetime.now)
     
     class Meta:
         ordering = ('-date',)
