@@ -6,8 +6,7 @@
 
 {% block subnav %}
 <ul>
-  <li><a href="{% url welcome %}">{% trans "Welcome Quiz" %}</a></li>
-  <li><a href="{% url quiz_all %}">{% trans "All Quiz's" %}</a></li>
+  <li><a href="{% url quiz_view_all %}">{% trans "All Quiz's" %}</a></li>
   <li><a href="{% url quiz_create %}">{% trans "Add New Quiz" %}</a></li>
 </ul>
 {% endblock %}
