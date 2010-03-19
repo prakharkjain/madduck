@@ -53,13 +53,13 @@ def quiz_create(request):
    #GET Request
    else:
         quiz_form = QuizForm()
-        return render_to_response('quiz/new.html', {
+        return render_to_response('quiz/create_quiz.html', {
                     "quiz_form" : quiz_form,
                     "events" : range(10),
                     "questions" : range(20)
                 }, context_instance=RequestContext(request))
 
-   return render_to_response('quiz/new.html', {
+   return render_to_response('quiz/create_quiz.html', {
                 "quiz_form" : quiz_form,
                 "events" : range(10),
                 "questions" : range(20)
@@ -92,13 +92,13 @@ def question_new(request):
    #GET Request
    else:
         question_form = QuestionForm()
-        return render_to_response('quiz/new1.html', {
+        return render_to_response('quiz/create_question.html', {
                     "question_form" : question_form,
                     "events" : range(10),
                     "questions" : range(20)
                }, context_instance=RequestContext(request))
 
-   return render_to_response('quiz/new1.html', {
+   return render_to_response('quiz/create_question.html', {
                 "question_form" : question_form,
                 "events" : range(10),
                 "questions" : range(20)
