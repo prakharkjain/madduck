@@ -168,6 +168,9 @@ ul.welcome .details span {
     margin-bottom: 100px;
 }
 
+.show-summary {
+	display: block;
+}
 /** QUIZ OVERVIEW START HERE **/
 div.quizOverViewContainer {
     height: 30px;

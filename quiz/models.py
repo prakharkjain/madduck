@@ -21,7 +21,7 @@ class Quiz(models.Model):
     
     name = models.CharField(_("Quiz Name"), max_length=500)
     note = models.CharField(_("Quiz Note"), max_length=500)
-    date = models.DateTimeField(_("Date"), default=datetime.now)
+    date = models.DateTimeField(_("Date (Duration of Test)"), default=datetime.now)
     
     class Meta:
         ordering = ('-date',)
