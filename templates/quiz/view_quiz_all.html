@@ -6,7 +6,7 @@
 
 {% block mainbody %}
     <ul class="ullist quizlt">
-    	{% for quiz in quiz_list %}
+    	{% for quizobj in quiz_list %}
         <li>
             <ul class="ulaction quizaction">
                 <li><a id="south" class="action summary" href="#" title="Quiz Summary (click here to see a brief summary of this quiz)">summary</a></li>
@@ -16,14 +16,17 @@
                 <li><a id="south" class="action status published last" href="#" title="Quiz Status (published | expired | on-going)">status</a></li>
             </ul>
             <div class="details">
-                <h2><a href="{{ quiz.get_absolute_url }}" class="title">{{ forloop.counter }}, {{ quiz.name }}.</a></h2>
+                <h2><a href="{{ quizobj.get_absolute_url }}" class="title">{{ forloop.counter }}, {{ quizobj.name }}.</a></h2>
                 <span>not published on {{ quiz.date }}.</span>
             </div>
 			<div id="quiz-summary" class="quiz-summary hide-summary">
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla</p>
 			</div>
         </li>
+		{% empty %}
+		      Start Creating a Quiz, there are none yet.
 		{% endfor %}
+		
     </ul>
 	
 	<div id="forms_container" style="display:none;">
@@ -37,7 +40,6 @@
 			</div>
 		</div>
 	</div>
-	
 {% endblock %}
 
 {% block sidebar0 %}

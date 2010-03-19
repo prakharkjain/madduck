@@ -33,12 +33,11 @@ def quiz_view_all(request):
                 "activity" : activity,
           }, context_instance=RequestContext(request))
 
-#marked for removal.
-
 @login_required
 def quiz_view(request, quiz_id):
   """ returns the details of a given quiz-id."""
-  return render_to_response('quiz/view_quiz.html')
+  return render_to_response('quiz/view_quiz.html', {
+          }, context_instance=RequestContext(request))
 
 @login_required
 def quiz_create(request):
@@ -70,12 +69,14 @@ def quiz_create(request):
 @login_required
 def quiz_update(request, quiz_id):
   """ returns the given quiz preloaded, ready for edit. """
-  return render_to_response('quiz/update_quiz.html')
+  return render_to_response('quiz/update_quiz.html', {
+            }, context_instance=RequestContext(request))
 
 @login_required
 def quiz_delete(request, quiz_id):
   """ handles the delete for a given quiz. """
-  return render_to_response('quiz/delete_quiz.html')
+  return render_to_response('quiz/delete_quiz.html', {
+            }, context_instance=RequestContext(request))
 
 
 """ all helper methods related to question creation start from here."""

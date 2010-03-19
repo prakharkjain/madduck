@@ -1,0 +1,94 @@
+{% extends "quiz/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% blocktrans %}All Quiz's{% endblocktrans %}{% endblock %}
+
+{% block mainbody %}
+    <ul class="ullist quizlt">
+        {% for quiz in quiz_list %}
+        <li>
+            <ul class="ulaction quizaction">
+                <li><a id="south" class="action summary" href="#" title="Quiz Summary (click here to see a brief summary of this quiz)">summary</a></li>
+                <li><a id="south" class="action edit" href="#" title="Edit Quiz (click here to edit/ modify this quiz)">edit</a></li>
+                <li><a id="south" class="action delete" href="#delete_quiz" title="Delete Quiz (click here to delete this quiz)">delete</a></li>
+                <li><a id="south" class="action type practice" href="#" title="Practice Quiz (click here to change this test type to - Free|Exam)">quiz type</a></li>
+                <li><a id="south" class="action status published last" href="#" title="Quiz Status (published | expired | on-going)">status</a></li>
+            </ul>
+            <div class="details">
+                <h2><a href="{{ quiz.get_absolute_url }}" class="title">{{ forloop.counter }}, {{ quiz.name }}.</a></h2>
+                <span>not published on {{ quiz.date }}.</span>
+            </div>
+            <div id="quiz-summary" class="quiz-summary hide-summary">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    
+    <div id="forms_container" style="display:none;">
+        <div id="delete_quiz">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla
+            </p>
+            <div class="buttons">
+                <a class="yes" href="#">Yes, Delete.</a>
+                <a class="no" href="#">No, Don't Delete Quiz.</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar0 %}
+    <ul class="ullist box announcement">
+        <li class="header">
+            <ul class="ulaction activityaction">
+                <li><a href="#" class="action close last">close</a></li>
+            </ul>
+            <h2> announcment stream </h2>
+            <div class="details">
+                <span class="question">this is a new announcement, this is a new announcement, this is a new announcement, </span>
+            </div>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block sidebar1 %}
+    <ul class="ullist box sidebarst">
+        <li class="header">
+            <h2> activity stream </h2>
+        </li>
+        {% for user in activity %}
+        <li>
+            <ul class="ulaction activityaction">
+                <li><a href="#" class="action reply" title="reply to this question">reply</a></li>
+                <li><a id="west" href="ignore" class="action ignore last" title="ignore this question">ignore</a></li>
+            </ul>
+            <div class="details">
+                <h2><a href="#" class="title">Subhash K.</a></h2>
+                <span class="question">question question question question question question question question question </span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block sidebar2 %}
+    <ul class="ullist box sidebarst">
+        <li class="header">
+            <h2>current tests</h2>
+        </li>
+        {% for event in events %}
+        <li>
+            <ul class="ulaction eventsaction">
+                <li><a href="#" class="action type">quiz type</a></li>
+                <li><a href="ignore" class="action status last">status</a></li>
+            </ul>
+            <div class="details">
+                <h2><a href="#" class="title">{{ forloop.counter }} Unit Test.</a></h2>
+                <span class="question">question paper summary/info.</span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
