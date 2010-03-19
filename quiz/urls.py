@@ -10,7 +10,4 @@ urlpatterns = patterns('quiz.views',
     url(r'^delete/(?P<quiz_id>\d+)/$', 'quiz_delete', name='quiz_delete'),
     
     url(r'^question-new/$', 'question_new', name='question_new'),
-    
-    #marked for removal.
-    url(r'^save/$', 'quiz_save', name='quiz_save'),
 )
