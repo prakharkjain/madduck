@@ -84,17 +84,6 @@ def welcome(request):
                "activity" : activity,
          }, context_instance=RequestContext(request))
 
-@login_required
-def quiz_welcome(request):
-  """ returns a quiz page, when visited for the first time by a user."""
-  elements, activity, events = range(10), range(5), range(5)
-  
-  return render_to_response('quiz/welcome-quiz.html', {
-               "list" : elements,
-               "events" : events,
-               "activity" : activity,
-         }, context_instance=RequestContext(request))
-
 """ all helper methods related to question creation start from here."""
 
 @login_required
