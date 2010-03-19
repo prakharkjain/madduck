@@ -11,7 +11,6 @@ class QuizForm(forms.ModelForm):
 	"""
 	def __init__ (self, *args, **kwargs):
 		super(QuizForm, self).__init__(*args, **kwargs)
-		self.is_update = False
 
 	def clean(self):
 		""" do validation here. """
@@ -19,8 +18,8 @@ class QuizForm(forms.ModelForm):
 		if 'name' not in self.cleaned_data:
 			return
 		#if a book with that title already exists
-		if Quiz.objects.filter(name=self.cleaned_data['name']).count() > 0:
-			raise forms.ValidationError(_("This quiz already exists"))
+#		if Quiz.objects.filter(name=self.cleaned_data['name']).count() > 0:
+#			raise forms.ValidationError(_("This quiz already exists"))
 		return self.cleaned_data
         
 	class Meta:

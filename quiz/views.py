@@ -68,8 +68,23 @@ def quiz_create(request):
 
 @login_required
 def quiz_update(request, quiz_id):
-  """ returns the given quiz preloaded, ready for edit. """
-  return render_to_response('quiz/update_quiz.html', {
+    """ update the quiz, given its id. """
+    quiz = Quiz.objects.get(id=quiz_id)
+    if request.method == "POST":
+        quiz_form = QuizForm(request.POST, request.FILES, instance=quiz)
+        quiz_form.is_update = True
+        if quiz_form.is_valid():
+            quiz_form.save()
+            return HttpResponseRedirect(reverse("quiz.views.quiz_update", args=[quiz_id]))
+    else:
+        quiz_form = QuizForm(instance=quiz)
+        return render_to_response("quiz/update_quiz.html", {
+                    "quiz_form": quiz_form,
+                    "quiz": quiz,
+                }, context_instance=RequestContext(request))
+    #generic case
+    return render_to_response("quiz/update_quiz.html", {
+                "quiz_form": quiz_form,
             }, context_instance=RequestContext(request))
 
 @login_required
