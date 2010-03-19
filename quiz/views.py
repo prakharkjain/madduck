@@ -59,31 +59,6 @@ def quiz_create(request):
 #marked for removal; this is a temporary function.
 
 @login_required
-def question_new(request):
-   """ returns a template to create a new quiz. """
-   if request.method == "POST":
-      question_form = QuestionForm(request.POST, request.FILES)
-      if question_form.is_valid():
-         new_question = question_form.save(commit=False)
-         new_question.save()
-         return HttpResponseRedirect(reverse("quiz.views.question_new"))
-         
-   #GET Request
-   else:
-        question_form = QuestionForm()
-        return render_to_response('quiz/new1.html', {
-                    "question_form" : question_form,
-                    "events" : range(10),
-                    "questions" : range(20)
-               }, context_instance=RequestContext(request))
-
-   return render_to_response('quiz/new1.html', {
-                "question_form" : question_form,
-                "events" : range(10),
-                "questions" : range(20)
-          }, context_instance=RequestContext(request))
-
-@login_required
 def quiz_save(request):
   """ returns a template to create a new quiz. """
   return render_to_response('quiz/save.html')
@@ -119,3 +94,31 @@ def quiz_welcome(request):
                "events" : events,
                "activity" : activity,
          }, context_instance=RequestContext(request))
+
+""" all helper methods related to question creation start from here."""
+
+@login_required
+def question_new(request):
+   """ returns a template to create a new quiz. """
+   if request.method == "POST":
+      question_form = QuestionForm(request.POST, request.FILES)
+      if question_form.is_valid():
+         new_question = question_form.save(commit=False)
+         new_question.save()
+         return HttpResponseRedirect(reverse("quiz.views.question_new"))
+         
+   #GET Request
+   else:
+        question_form = QuestionForm()
+        return render_to_response('quiz/new1.html', {
+                    "question_form" : question_form,
+                    "events" : range(10),
+                    "questions" : range(20)
+               }, context_instance=RequestContext(request))
+
+   return render_to_response('quiz/new1.html', {
+                "question_form" : question_form,
+                "events" : range(10),
+                "questions" : range(20)
+          }, context_instance=RequestContext(request))
+
