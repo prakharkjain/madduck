@@ -21,11 +21,13 @@ $(document).ready(function(){
 //            opacity: "hide"
 //        }, "slow");
 //    });
-    $(".action.delete").fancybox({
-        'titleShow': false,
-        'transitionIn': 'fade',
-        'transitionOut': 'fade'
-    });
+
+//commenting out the light-box behaviour.
+//    $(".action.delete").fancybox({
+//        'titleShow': false,
+//        'transitionIn': 'fade',
+//        'transitionOut': 'fade'
+//    });
     $("div.buttons a.no").click(function(){
         $.fancybox.close();
     });

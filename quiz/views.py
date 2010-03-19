@@ -89,10 +89,12 @@ def quiz_update(request, quiz_id):
 
 @login_required
 def quiz_delete(request, quiz_id):
-  """ handles the delete for a given quiz. """
-  return render_to_response('quiz/delete_quiz.html', {
-            }, context_instance=RequestContext(request))
-
+    """ handles the delete for a given quiz. """
+    quiz = get_object_or_404(Quiz, id=quiz_id)
+    quiz.delete()
+    request.user.message_set.create(message=_("Quiz Deleted."))
+    
+    return HttpResponseRedirect(reverse("quiz.views.quiz_view_all"))
 
 """ all helper methods related to question creation start from here."""
 @login_required
