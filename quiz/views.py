@@ -27,17 +27,6 @@ def quiz_all(request):
 #marked for removal.
 
 @login_required
-def quiz_first_time(request):
-  """ returns a quiz page, when visited for the first time by a user."""
-  elements, activity, events = range(10), range(5), range(5)
-  
-  return render_to_response('quiz/list_all.html', {
-                "list" : elements,
-                "events" : events,
-                "activity" : activity,
-          }, context_instance=RequestContext(request))
-  
-@login_required
 def quiz_view(request, quiz_id):
   """ returns the details of a given quiz-id."""
   return render_to_response('quiz/details.html')
