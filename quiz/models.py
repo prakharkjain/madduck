@@ -3,6 +3,7 @@ from os import path
 from datetime import datetime
 
 from django.db import models
+from django.db.models import permalink
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
@@ -24,10 +25,10 @@ class Quiz(models.Model):
     
     class Meta:
         ordering = ('-date',)
-
+    
+    @models.permalink
     def get_absolute_url(self):
-        return ("describe_quiz", [self.pk])
-    get_absolute_url = models.permalink(get_absolute_url)
+        return ("quiz_view", [self.pk])
 
 class Question(models.Model):
     qText = models.TextField(_("Question Text"), default="type in the question here.")
@@ -36,7 +37,7 @@ class Question(models.Model):
     class Meta:
         ordering = ("-qText",)
     
+    @models.permalink
     def get_absolute_url(self):
         return ("describe_question", [self.pk])
-    get_absolute_url = models.permalink(get_absolute_url)
     

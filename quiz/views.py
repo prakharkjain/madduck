@@ -19,31 +19,31 @@ def quiz_all(request):
   quiz_list = Quiz.objects.all().order_by('-date')
 
   return render_to_response('quiz/list_all.html', {
-        "quiz_list" : quiz_list,
-        "events" : events,
-        "activity" : activity,
-  	}, context_instance=RequestContext(request))
-
+                "quiz_list" : quiz_list,
+                "events" : events,
+                "activity" : activity,
+          }, context_instance=RequestContext(request))
 
 #marked for removal.
+
 @login_required
 def quiz_first_time(request):
   """ returns a quiz page, when visited for the first time by a user."""
   elements, activity, events = range(10), range(5), range(5)
   
   return render_to_response('quiz/list_all.html', {
-        "list" : elements,
-        "events" : events,
-        "activity" : activity,
-      }, context_instance=RequestContext(request))
+                "list" : elements,
+                "events" : events,
+                "activity" : activity,
+          }, context_instance=RequestContext(request))
   
 @login_required
-def quiz_details(request, quiz_id):
+def quiz_view(request, quiz_id):
   """ returns the details of a given quiz-id."""
   return render_to_response('quiz/details.html')
-  
+
 @login_required
-def quiz_new(request):
+def quiz_create(request):
    """ returns a template to create a new quiz. """
    if request.method == "POST":
       quiz_form = QuizForm(request.POST, request.FILES)
@@ -54,20 +54,21 @@ def quiz_new(request):
          
    #GET Request
    else:
-       	quiz_form = QuizForm()
+        quiz_form = QuizForm()
         return render_to_response('quiz/new.html', {
+                    "quiz_form" : quiz_form,
+                    "events" : range(10),
+                    "questions" : range(20)
+                }, context_instance=RequestContext(request))
+
+   return render_to_response('quiz/new.html', {
                 "quiz_form" : quiz_form,
                 "events" : range(10),
                 "questions" : range(20)
-        }, context_instance=RequestContext(request))
-
-   return render_to_response('quiz/new.html', {
-        "quiz_form" : quiz_form,
-        "events" : range(10),
-        "questions" : range(20)
-      }, context_instance=RequestContext(request))
+           }, context_instance=RequestContext(request))
 
 #marked for removal; this is a temporary function.
+
 @login_required
 def question_new(request):
    """ returns a template to create a new quiz. """
@@ -82,28 +83,27 @@ def question_new(request):
    else:
         question_form = QuestionForm()
         return render_to_response('quiz/new1.html', {
+                    "question_form" : question_form,
+                    "events" : range(10),
+                    "questions" : range(20)
+               }, context_instance=RequestContext(request))
+
+   return render_to_response('quiz/new1.html', {
                 "question_form" : question_form,
                 "events" : range(10),
                 "questions" : range(20)
-        }, context_instance=RequestContext(request))
+          }, context_instance=RequestContext(request))
 
-   return render_to_response('quiz/new1.html', {
-        "question_form" : question_form,
-        "events" : range(10),
-        "questions" : range(20)
-      }, context_instance=RequestContext(request))
-   
 @login_required
 def quiz_save(request):
   """ returns a template to create a new quiz. """
   return render_to_response('quiz/save.html')
-  
-  
+
 @login_required
-def quiz_edit(request, quiz_id):
+def quiz_update(request, quiz_id):
   """ returns the given quiz preloaded, ready for edit. """
   return render_to_response('quiz/edit.html')
-  
+
 @login_required
 def quiz_delete(request, quiz_id):
   """ handles the delete for a given quiz. """
@@ -115,18 +115,18 @@ def welcome(request):
   elements, activity, events = range(10), range(5), range(5)
   
   return render_to_response('quiz/welcome.html', {
-        "list" : elements,
-        "events" : events,
-        "activity" : activity,
-      }, context_instance=RequestContext(request))
-  
+               "list" : elements,
+               "events" : events,
+               "activity" : activity,
+         }, context_instance=RequestContext(request))
+
 @login_required
 def quiz_welcome(request):
   """ returns a quiz page, when visited for the first time by a user."""
   elements, activity, events = range(10), range(5), range(5)
   
   return render_to_response('quiz/welcome-quiz.html', {
-        "list" : elements,
-        "events" : events,
-        "activity" : activity,
-      }, context_instance=RequestContext(request))
+               "list" : elements,
+               "events" : events,
+               "activity" : activity,
+         }, context_instance=RequestContext(request))

@@ -35,7 +35,7 @@
 						<br/><br/>
 					</span>
 					<div class="quizform blank">
-					    <form class="quiz_new uniForm" method="POST" action="{% url quiz_new %}">
+					    <form class="quiz_new uniForm" method="POST" action="{% url quiz_create %}">
 					        {% csrf_token %}
 					        <fieldset class="inlineLabels">
 					            {{ quiz_form|as_uni_form }}
