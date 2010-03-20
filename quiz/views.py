@@ -23,50 +23,50 @@ def quiz_welcome(request):
 
 @login_required
 def quiz_view_all(request):
-  """ returns a list of all the quiz created by a user."""
-  elements, activity, events = range(10), range(5), range(5)
-  quiz_list = Quiz.objects.all().order_by('-added')
-
-  return render_to_response('quiz/view_quiz_all.html', {
-                "quiz_list" : quiz_list,
-                "events" : events,
-                "activity" : activity,
-          }, context_instance=RequestContext(request))
+    """ returns a list of all the quiz created by a user."""
+    elements, activity, events = range(10), range(5), range(5)
+    quiz_list = Quiz.objects.all().order_by('-added')
+    
+    return render_to_response('quiz/view_quiz_all.html', {
+                  "quiz_list" : quiz_list,
+                  "events" : events,
+                  "activity" : activity,
+            }, context_instance=RequestContext(request))
 
 @login_required
 def quiz_view(request, quiz_id):
-  """ returns the details of a given quiz-id."""
-  quiz = get_object_or_404(Quiz, id=quiz_id)
-  questions = quiz.question_set.all()
-  return render_to_response('quiz/view_quiz.html', {
-            "quizobj" : quiz,
-            "questions" : questions,
-          }, context_instance=RequestContext(request))
+    """ returns the details of a given quiz-id."""
+    quiz = get_object_or_404(Quiz, id=quiz_id)
+    questions = quiz.question_set.all()
+    return render_to_response('quiz/view_quiz.html', {
+              "quizobj" : quiz,
+              "questions" : questions,
+            }, context_instance=RequestContext(request))
 
 @login_required
 def quiz_create(request):
-   """ returns a template to create a new quiz. """
-   if request.method == "POST":
-      quiz_form = QuizForm(request.POST, request.FILES)
-      if quiz_form.is_valid():
-         new_quiz = quiz_form.save(commit=False)
-         new_quiz.save()
-         return HttpResponseRedirect(reverse("quiz.views.question_new", args=[new_quiz.id]))
-         
-   #GET Request
-   else:
-        quiz_form = QuizForm()
-        return render_to_response('quiz/create_quiz.html', {
-                    "quiz_form" : quiz_form,
-                    "events" : range(10),
-                    "questions" : range(20)
-                }, context_instance=RequestContext(request))
-
-   return render_to_response('quiz/create_quiz.html', {
-                "quiz_form" : quiz_form,
-                "events" : range(10),
-                "questions" : range(20)
-           }, context_instance=RequestContext(request))
+    """ returns a template to create a new quiz. """
+    if request.method == "POST":
+       quiz_form = QuizForm(request.POST, request.FILES)
+       if quiz_form.is_valid():
+          new_quiz = quiz_form.save(commit=False)
+          new_quiz.save()
+          return HttpResponseRedirect(reverse("quiz.views.question_new", args=[new_quiz.id]))
+          
+    #GET Request
+    else:
+         quiz_form = QuizForm()
+         return render_to_response('quiz/create_quiz.html', {
+                     "quiz_form" : quiz_form,
+                     "events" : range(10),
+                     "questions" : range(20)
+                 }, context_instance=RequestContext(request))
+    
+    return render_to_response('quiz/create_quiz.html', {
+                 "quiz_form" : quiz_form,
+                 "events" : range(10),
+                 "questions" : range(20)
+            }, context_instance=RequestContext(request))
 
 #marked for removal; this is a temporary function.
 
@@ -103,26 +103,56 @@ def quiz_delete(request, quiz_id):
 """ all helper methods related to question creation start from here."""
 @login_required
 def question_new(request, quiz_id):
-   """ returns a template to create a new quiz. """
-   if request.method == "POST":
-      question_form = QuestionForm(request.POST, request.FILES)
-      if question_form.is_valid():
-         new_question = question_form.save(commit=False)
-         new_question.qQuiz = Quiz.objects.get(id=quiz_id)
-         new_question.save()
-         return HttpResponseRedirect(reverse("quiz.views.question_new", args=[quiz_id]))
-         
-   #GET Request
-   else:
-        question_form = QuestionForm()
-        return render_to_response('quiz/create_question.html', {
-                    "question_form" : question_form,
-                    "events" : range(10),
-                    "questions" : range(20)
-               }, context_instance=RequestContext(request))
+    """ returns a template to create a new quiz. """
+    quiz = Quiz.objects.get(id=quiz_id)
+    questions = quiz.question_set.all()
+    if request.method == "POST":
+       question_form = QuestionForm(request.POST, request.FILES)
+       if question_form.is_valid():
+          new_question = question_form.save(commit=False)
+          new_question.qQuiz = Quiz.objects.get(id=quiz_id)
+          new_question.save()
+          return HttpResponseRedirect(reverse("quiz.views.question_new", args=[quiz_id]))
+          
+    #GET Request
+    else:
+         question_form = QuestionForm()
+         return render_to_response('quiz/create_question.html', {
+                     "question_form" : question_form,
+                     "questions" : questions,
+                     "quiz" : quiz
+                }, context_instance=RequestContext(request))
+    
+    return render_to_response('quiz/create_question.html', {
+                 "question_form" : question_form,
+                 "questions" : questions,
+                 "quiz" : quiz,
+           }, context_instance=RequestContext(request))
 
-   return render_to_response('quiz/create_question.html', {
+@login_required
+def question_view(request, quiz_id, question_id):
+    """ opens the selected question in the preview mode. """
+    """ update the quiz, given its id. """
+    quiz = Quiz.objects.get(id=quiz_id)
+    question = Question.objects.get(id=question_id)
+    questions = quiz.question_set.all()
+    if request.method == "POST":
+        question_form = QuestionForm(request.POST, request.FILES, instance=question)
+        question_form.is_update = True
+        if question_form.is_valid():
+            question_form.save()
+            return HttpResponseRedirect(reverse("quiz.views.question_view", args=[quiz_id, question_id]))
+    else:
+        #GET request.
+        question_form = QuestionForm(instance=question)
+        return render_to_response("quiz/create_question.html", {
+                    "question_form" : question_form,
+                    "questions" : questions,
+                    "quizobj" : quiz,
+                }, context_instance=RequestContext(request))
+    #generic case
+    return render_to_response("quiz/create_question.html", {
                 "question_form" : question_form,
-                "events" : range(10),
-                "questions" : range(20)
-          }, context_instance=RequestContext(request))
+                "questions" : questions,
+                "quizobj" : quiz,
+            }, context_instance=RequestContext(request))

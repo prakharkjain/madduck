@@ -74,7 +74,7 @@ class Question(models.Model):
     
     @models.permalink
     def get_absolute_url(self):
-        return ("question_view", [self.pk])
+        return ("question_view", [self.qQuiz.id, self.pk])
     
 #    def __unicode__(self):
 #        return "#%d, %s" % (self.id, self.qText)
