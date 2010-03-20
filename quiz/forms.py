@@ -24,6 +24,7 @@ class QuizForm(forms.ModelForm):
         
     class Meta:
         model = Quiz
+        exclude = ('date',)
 
 class QuestionForm(forms.ModelForm):
     """ Question Form : form associated to the question model. """
