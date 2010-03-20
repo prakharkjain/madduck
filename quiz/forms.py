@@ -24,8 +24,8 @@ class QuizForm(forms.ModelForm):
         
     class Meta:
         model = Quiz
-        exclude = ('date',)
-        fields = ('classs', 'subject', 'duration', 'name', 'total_marks', 'total_questions', 'note')
+        exclude = ('added', 'last_updated',)
+        fields = ('classs', 'subject', 'duration', 'name', 'total_marks', 'total_questions', 'note',)
 
 class QuestionForm(forms.ModelForm):
     """ Question Form : form associated to the question model. """

@@ -46,10 +46,16 @@ class Quiz(models.Model):
     
     name = models.CharField(_("Quiz Name"), max_length=500)
     note = models.TextField(_("Quiz Note"), default="any additional notes, hints along with the test...")
-    date = models.DateTimeField(_("Date (Duration of Test)"), default=datetime.now)
+    
+    """ @TODO rename it to added. """
+    added = models.DateTimeField(_("Date (Duration of Test)"), default=datetime.now)
+    
+#    """ @TODO add a new field, last-updated. """
+#    last_updated = models.DateField(_("Last Updated"), default=datetime.now)
+
     
     class Meta:
-        ordering = ('-date',)
+        ordering = ('-last_updated', '-added',)
     
     @models.permalink
     def get_absolute_url(self):
