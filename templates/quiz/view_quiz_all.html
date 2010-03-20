@@ -17,7 +17,7 @@
             </ul>
             <div class="details">
                 <h2><a href="{{ quizobj.get_absolute_url }}" class="title">{{ forloop.counter }}, {{ quizobj.name }}</a></h2>
-                <span>not published on {{ quizobj.date }}.</span>
+                <span>not published on {{ quizobj.added }}.</span>
             </div>
             <div id="quiz-summary" class="quiz-summary hide-summary">
                 <p>subject : {{ quizobj.subject }}</p>

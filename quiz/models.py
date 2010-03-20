@@ -60,7 +60,7 @@ class Quiz(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ("quiz_view", [self.pk])
-
+    
 class Question(models.Model):
     qText = models.TextField(_("Question Text"), default="type in the question here.")
     qAnswer = models.TextField(_("Question Answer"), default="type in the answer here.")

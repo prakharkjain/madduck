@@ -25,7 +25,7 @@ def quiz_welcome(request):
 def quiz_view_all(request):
   """ returns a list of all the quiz created by a user."""
   elements, activity, events = range(10), range(5), range(5)
-  quiz_list = Quiz.objects.all().order_by('-date')
+  quiz_list = Quiz.objects.all().order_by('-added')
 
   return render_to_response('quiz/view_quiz_all.html', {
                 "quiz_list" : quiz_list,
