@@ -37,8 +37,10 @@ def quiz_view_all(request):
 def quiz_view(request, quiz_id):
   """ returns the details of a given quiz-id."""
   quiz = get_object_or_404(Quiz, id=quiz_id)
+  questions = quiz.question_set.all()
   return render_to_response('quiz/view_quiz.html', {
             "quizobj" : quiz,
+            "questions" : questions,
           }, context_instance=RequestContext(request))
 
 @login_required

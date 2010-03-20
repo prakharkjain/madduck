@@ -30,6 +30,25 @@
         </li>
     </ul>
     
+    <ul class="ullist quizlt">
+    	{% for question in questions %}
+        <li>
+            <ul class="ulaction quizaction">
+                <li><a id="south" class="action edit" href="#" title="Edit Question (click here to edit question)">edit</a></li>
+                <li><a id="south" class="action delete" href="#" title="Delete Question (click here to delete question)">delete</a></li>
+                <li><a id="south" class="action type last" href="#" title="Question Type (multiple-choice question)">multi-choice</a></li>
+            </ul>
+            <div class="details">
+                <h2><a href="{{ question.get_absolute_url }}" class="title">{{ question.qText }}.</a></h2>
+                <span>Answer: {{ question.qAnswer }}.</span>
+            </div>
+            <div id="quiz-summary" class="quiz-summary hide-summary">
+                <p></p>
+            </div>
+        </li>
+		{% endfor %}
+    </ul>
+    
     <div id="forms_container" style="display:none;">
         <div id="delete_quiz">
             <p>

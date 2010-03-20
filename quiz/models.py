@@ -52,7 +52,6 @@ class Quiz(models.Model):
     
     """ @TODO add a new field, last-updated. """
     last_updated = models.DateField(_("Last Updated"), default=datetime.now)
-
     
     class Meta:
         ordering = ('-last_updated', '-added',)
@@ -61,8 +60,9 @@ class Quiz(models.Model):
     def get_absolute_url(self):
         return ("quiz_view", [self.pk])
     
-    def __unicode__(self):
-        return "#%d, %s" % (self.id, self.name)
+#    def __unicode__(self):
+#        return "#%d, %s" % (self.id, self.name)
+    
     
 class Question(models.Model):
     qQuiz = models.ForeignKey(Quiz)
@@ -74,9 +74,9 @@ class Question(models.Model):
     
     @models.permalink
     def get_absolute_url(self):
-        return ("describe_question", [self.pk])
+        return ("question_view", [self.pk])
     
-    def __unicode__(self):
-        return "#%d, %s" % (self.id, self.qText)
+#    def __unicode__(self):
+#        return "#%d, %s" % (self.id, self.qText)
     
     
