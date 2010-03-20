@@ -19,9 +19,13 @@
                 <h2><a href="{{ quizobj.get_absolute_url }}" class="title">{{ forloop.counter }}, {{ quizobj.name }}</a></h2>
                 <span>not published on {{ quizobj.date }}.</span>
             </div>
-			<div id="quiz-summary" class="quiz-summary hide-summary">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla</p>
-			</div>
+            <div id="quiz-summary" class="quiz-summary hide-summary">
+                <p>subject : {{ quizobj.subject }}</p>
+                <p>class : {{ quizobj.classs }}</p>
+                <p>total_marks : {{ quizobj.total_marks }}</p>
+                <p>total_questions : {{ quizobj.total_questions }}</p>
+                <p>note : {{ quizobj.note }}</p>
+            </div>
         </li>
 		{% empty %}
 		      Start Creating a Quiz, there are none yet.
