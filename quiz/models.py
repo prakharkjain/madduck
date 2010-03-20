@@ -36,7 +36,7 @@ class Quiz(models.Model):
         (60, u"60 minutes"),
         (90, u"1 hour, 30 minutes.")
     )
-
+    
     classs = models.CharField(_("Class"), max_length=15, choices=CLASS_CHOICES, default=_("select a class")) 
     subject = models.CharField(_("Subject"), max_length=15, choices=SUBJECT_CHOICES, default=_("select a subject"))
     
@@ -45,7 +45,7 @@ class Quiz(models.Model):
     duration = models.IntegerField(_("Duration Of The Test"), choices=DURATION_CHOICES, default=_("select test duration"))
     
     name = models.CharField(_("Quiz Name"), max_length=500)
-    note = models.CharField(_("Quiz Note"), max_length=500)
+    note = models.TextField(_("Quiz Note"), default="any additional notes, hints along with the test...")
     date = models.DateTimeField(_("Date (Duration of Test)"), default=datetime.now)
     
     class Meta:
