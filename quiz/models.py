@@ -50,8 +50,8 @@ class Quiz(models.Model):
     """ @TODO rename it to added. """
     added = models.DateTimeField(_("Date (Duration of Test)"), default=datetime.now)
     
-#    """ @TODO add a new field, last-updated. """
-#    last_updated = models.DateField(_("Last Updated"), default=datetime.now)
+    """ @TODO add a new field, last-updated. """
+    last_updated = models.DateField(_("Last Updated"), default=datetime.now)
 
     
     class Meta:
@@ -61,7 +61,11 @@ class Quiz(models.Model):
     def get_absolute_url(self):
         return ("quiz_view", [self.pk])
     
+    def __unicode__(self):
+        return "#%d, %s" % (self.id, self.name)
+    
 class Question(models.Model):
+    qQuiz = models.ForeignKey(Quiz)
     qText = models.TextField(_("Question Text"), default="type in the question here.")
     qAnswer = models.TextField(_("Question Answer"), default="type in the answer here.")
     
@@ -71,4 +75,8 @@ class Question(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ("describe_question", [self.pk])
+    
+    def __unicode__(self):
+        return "#%d, %s" % (self.id, self.qText)
+    
     

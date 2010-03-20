@@ -9,5 +9,5 @@ urlpatterns = patterns('quiz.views',
     url(r'^update/(?P<quiz_id>\d+)/$', 'quiz_update', name='quiz_update'),
     url(r'^delete/(?P<quiz_id>\d+)/$', 'quiz_delete', name='quiz_delete'),
     
-    url(r'^question-new/$', 'question_new', name='question_new'),
+    url(r'^(?P<quiz_id>\d+)/question-new/$', 'question_new', name='question_new'),
 )

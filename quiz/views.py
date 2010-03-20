@@ -49,7 +49,7 @@ def quiz_create(request):
       if quiz_form.is_valid():
          new_quiz = quiz_form.save(commit=False)
          new_quiz.save()
-         return HttpResponseRedirect(reverse("quiz.views.question_new"))
+         return HttpResponseRedirect(reverse("quiz.views.question_new", args=[new_quiz.id]))
          
    #GET Request
    else:
@@ -100,14 +100,15 @@ def quiz_delete(request, quiz_id):
 
 """ all helper methods related to question creation start from here."""
 @login_required
-def question_new(request):
+def question_new(request, quiz_id):
    """ returns a template to create a new quiz. """
    if request.method == "POST":
       question_form = QuestionForm(request.POST, request.FILES)
       if question_form.is_valid():
          new_question = question_form.save(commit=False)
+         new_question.qQuiz = Quiz.objects.get(id=quiz_id)
          new_question.save()
-         return HttpResponseRedirect(reverse("quiz.views.question_new"))
+         return HttpResponseRedirect(reverse("quiz.views.question_new", args=[quiz_id]))
          
    #GET Request
    else:

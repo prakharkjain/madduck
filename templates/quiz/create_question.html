@@ -10,7 +10,7 @@
     {% include "quiz/timeline-quiz.html" %}
 
     <div class="questionEditorContainer">
-        <form class="quiz_new uniForm" method="POST" action="{% url question_new %}">
+        <form class="quiz_new uniForm" method="POST" action="">
             {% csrf_token %}
             <fieldset class="inlineLabels">
                 {{ question_form|as_uni_form }}
