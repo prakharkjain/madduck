@@ -6,20 +6,8 @@
 {% block head_title %}{% blocktrans %}Create a New Quiz{% endblocktrans %}{% endblock %}
 
 {% block mainbody %}
-    <div class="quizOverViewContainer">
-        <ul class="quizOverView">
-            <li class="capsule buttons"><a class="left" href="#" title="quiz details">details</a></li>
-            {% for question in questions%}
-                <li class="capsule">
-                    <a href="#" class="question" title="{{ forloop.counter }}, not completed yet.">{{ forloop.counter }}</a>
-                    <div class="status"></div>
-                </li>
-            {% endfor %}
-            <li class="capsule buttons action"><a class="right" href="#" title="download the quiz">download</a></li>
-            <li class="capsule buttons action"><a href="#" title="publish the quiz">publish</a></li>
-            <li class="capsule buttons action"><a class="left" href="#" title="see preview of the quiz">preview</a></li>
-        </ul>
-    </div>
+    
+    {% include "quiz/timeline-quiz.html" %}
     
     <div class="questionEditorContainer">
         <ul class="ullist welcome">
