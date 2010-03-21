@@ -54,21 +54,11 @@ def quiz_create(request):
           return HttpResponseRedirect(reverse("quiz.views.question_new", args=[new_quiz.id]))
           
     #GET Request
-    else:
-         quiz_form = QuizForm()
-         return render_to_response('quiz/create_quiz.html', {
-                     "quiz_form" : quiz_form,
-                     "events" : range(10),
-                     "questions" : range(20)
-                 }, context_instance=RequestContext(request))
-    
+    quiz_form = QuizForm()
     return render_to_response('quiz/create_quiz.html', {
-                 "quiz_form" : quiz_form,
-                 "events" : range(10),
-                 "questions" : range(20)
+                "quiz_form" : quiz_form,
+                "questions" : range(20)
             }, context_instance=RequestContext(request))
-
-#marked for removal; this is a temporary function.
 
 @login_required
 def quiz_update(request, quiz_id):

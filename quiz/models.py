@@ -61,7 +61,7 @@ class Quiz(models.Model):
                                    choices=DURATION_CHOICES, 
                                    default=_("select test duration"))
     
-    name = models.CharField(_("Quiz Name"), 
+    name = models.CharField(_("Test Type"), 
                             max_length=50, 
                             choices=QUIZ_TYPE_CHOICES, 
                             default=_("select the test type"))
