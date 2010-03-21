@@ -11,7 +11,7 @@ from django.db.models.base import get_absolute_url
 
 # Create your models here.
 class Quiz(models.Model):
-    """ Quiz Model: name, subject, date, class, total_marks, total_questions, duration, note """
+    """ Quiz Model: type, subject, date, class, total_marks, total_questions, duration, note """
     
     """ @TODO these should not be hardcoded.. """
     CLASS_CHOICES = (
@@ -37,18 +37,46 @@ class Quiz(models.Model):
         (90, u"1 hour, 30 minutes.")
     )
     
-    classs = models.CharField(_("Class"), max_length=15, choices=CLASS_CHOICES, default=_("select a class")) 
-    subject = models.CharField(_("Subject"), max_length=15, choices=SUBJECT_CHOICES, default=_("select a subject"))
+#    """ @TODO these should not be hardcoded. """
+#    QUIZ_TYPE_CHOICES = (
+#        (u"Exam_TL", u"Exam with time limit"),
+#        (u"PracticeTest_NTL", u"Practice Test no time-limit"),
+#    )
+#    
+    classs = models.CharField(_("Class"), 
+                              max_length=15, 
+                              choices=CLASS_CHOICES, 
+                              default=_("select a class"), 
+                              blank=True)
     
-    total_marks = models.IntegerField(_("Total Marks"))
-    total_questions = models.IntegerField(_("Total Questions"))
-    duration = models.IntegerField(_("Duration Of The Test"), choices=DURATION_CHOICES, default=_("select test duration"))
+    subject = models.CharField(_("Subject or Topic"), 
+                               max_length=15, 
+                               choices=SUBJECT_CHOICES, 
+                               default=_("select a subject"), 
+                               blank=True)
     
-    name = models.CharField(_("Quiz Name"), max_length=500)
-    note = models.TextField(_("Quiz Note"), default="any additional notes, hints along with the test...")
+    total_marks = models.IntegerField(_("Total Marks"), 
+                                      blank=True)
+    
+    total_questions = models.IntegerField(_("Total Number of Questions"), 
+                                          blank=True)
+    
+#    duration = models.IntegerField(_("Duration Of The Test"), 
+#                                   choices=DURATION_CHOICES, 
+#                                   default=_("select test duration"), 
+#                                   blank=True)
+#    
+#    type = models.CharField(_("Test Type"), 
+#                            max_length=50, 
+#                            default=_("select the test type."),
+#                            blank=True)
+#    
+#    note = models.TextField(_("Any Notes/ Remarks/ Hints on Test"), 
+#                            default="any additional notes, hints along with the test...", 
+#                            blank=True)
     
     """ @TODO rename it to added. """
-    added = models.DateTimeField(_("Date (Duration of Test)"), default=datetime.now)
+    added = models.DateTimeField(_("Date Duration of Test"), default=datetime.now)
     
     """ @TODO add a new field, last-updated. """
     last_updated = models.DateField(_("Last Updated"), default=datetime.now)
@@ -63,11 +91,11 @@ class Quiz(models.Model):
 #    def __unicode__(self):
 #        return "#%d, %s" % (self.id, self.name)
     
-    
 class Question(models.Model):
     qQuiz = models.ForeignKey(Quiz)
     qText = models.TextField(_("Question Text"), default="type in the question here.")
-    qAnswer = models.TextField(_("Question Answer"), default="type in the answer here.")
+    qAnswer = models.TextField(_("Question Answer"), default="type in the answer here.", blank=True)
+    qNumber = models.IntegerField(_("Question Number"),)
     
     class Meta:
         ordering = ("-qText",)
