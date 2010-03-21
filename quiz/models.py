@@ -43,21 +43,39 @@ class Quiz(models.Model):
         (u"PracticeTest_WTL", u"Practice Test (without time-limit)"),
     )
     
-    classs = models.CharField(_("Class"), max_length=15, choices=CLASS_CHOICES, default=_("select a class")) 
-    subject = models.CharField(_("Subject"), max_length=15, choices=SUBJECT_CHOICES, default=_("select a subject"))
+    classs = models.CharField(_("Class"), 
+                              max_length=15, 
+                              choices=CLASS_CHOICES, 
+                              default=_("select a class"))
+     
+    subject = models.CharField(_("Subject"), 
+                               max_length=15, 
+                               choices=SUBJECT_CHOICES, 
+                               default=_("select a subject"))
     
     total_marks = models.IntegerField(_("Total Marks"))
-    total_questions = models.IntegerField(_("Total Questions"))
-    duration = models.IntegerField(_("Duration Of The Test"), choices=DURATION_CHOICES, default=_("select test duration"))
     
-    name = models.CharField(_("Quiz Name"), max_length=50, choices=QUIZ_TYPE_CHOICES, default=_("select the test type"))
-    note = models.TextField(_("Quiz Note"), default="any additional notes, hints along with the test...")
+    total_questions = models.IntegerField(_("Total Questions"))
+    
+    duration = models.IntegerField(_("Duration Of The Test"), 
+                                   choices=DURATION_CHOICES, 
+                                   default=_("select test duration"))
+    
+    name = models.CharField(_("Quiz Name"), 
+                            max_length=50, 
+                            choices=QUIZ_TYPE_CHOICES, 
+                            default=_("select the test type"))
+    
+    note = models.TextField(_("Quiz Note"), 
+                            default=_("any additional notes, hints along with the test..."))
     
     """ @TODO rename it to added. """
-    added = models.DateTimeField(_("Date (Duration of Test)"), default=datetime.now)
+    added = models.DateTimeField(_("Date (Duration of Test)"), 
+                                 default=datetime.now)
     
     """ @TODO add a new field, last-updated. """
-    last_updated = models.DateField(_("Last Updated"), default=datetime.now)
+    last_updated = models.DateField(_("Last Updated"), 
+                                    default=datetime.now)
     
     class Meta:
         ordering = ('-last_updated', '-added',)
