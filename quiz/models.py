@@ -67,7 +67,8 @@ class Quiz(models.Model):
                             default=_("select the test type"))
     
     note = models.TextField(_("Quiz Note"), 
-                            default=_("any additional notes, hints along with the test..."))
+                            default=_("any additional notes, hints along with the test..."),
+                            blank=True)
     
     """ @TODO rename it to added. """
     added = models.DateTimeField(_("Date (Duration of Test)"), 

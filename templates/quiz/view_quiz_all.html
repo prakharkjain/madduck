@@ -16,7 +16,7 @@
                 <li><a id="south" class="action status published last" href="#" title="Quiz Status (published | expired | on-going)">status</a></li>
             </ul>
             <div class="details">
-                <h2><a href="{{ quizobj.get_absolute_url }}" class="title">{{ forloop.counter }}, {{ quizobj.name }}</a></h2>
+                <h2><a href="{{ quizobj.get_absolute_url }}" class="title">{{ quizobj.id }}, {{ quizobj.name }}</a></h2>
                 <span>not published on {{ quizobj.added }}.</span>
             </div>
             <div id="quiz-summary" class="quiz-summary hide-summary">
