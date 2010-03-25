@@ -243,9 +243,6 @@ ul.quizOverView li.buttons a.left {
 	-moz-border-radius-bottomleft: 4px;
 }
 
-div#delete_quiz {
-    width: 300px;
-}
 /** QUIZ OVERVIEW ENDS HERE **/
 
 div.buttons a.yes, div.buttons a.no {
@@ -292,3 +289,18 @@ div.questionEditorContainer textarea.answer {
 #id_qText {
 	height: 70px;
 }
+
+/* fancybox-pop styling; to be optimized; removed*/
+div.fancybox-popup {
+    width: 400px;
+    height: 400px;
+}
+
+div#download_quiz {
+    height: 200px;	
+}
+
+div.fancybox-popup .download-formats a {
+    margin: 20px;
+}
+

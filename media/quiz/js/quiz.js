@@ -62,4 +62,11 @@ $(document).ready(function(){
     $("li.buttons a").tipsy({
         fade: true
     });
+	
+    $("li.buttons a.download, li.buttons a.preview").fancybox({
+        'titleShow': false,
+        'transitionIn': 'fade',
+        'transitionOut': 'fade'
+    });
+	
 });

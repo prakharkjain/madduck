@@ -7,8 +7,30 @@
                     <div class="status"></div>
                 </li>
             {% endfor %}
-            <li class="capsule buttons action"><a class="right download" href="#" title="download the quiz">download</a></li>
+            <li class="capsule buttons action"><a class="right download" href="#download_quiz" title="download the quiz">download</a></li>
             <li class="capsule buttons action"><a class="publish" href="#" title="publish the quiz">publish</a></li>
-            <li class="capsule buttons action"><a class="left preview" href="#" title="see preview of the quiz">preview</a></li>
+            <li class="capsule buttons action"><a class="left preview" href="#preview_quiz" title="see preview of the quiz">preview</a></li>
         </ul>
     </div>
+	
+    <div id="forms_container" style="display:none;">
+        <div id="download_quiz" class="fancybox-popup">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla
+				<div class="download-formats">
+                    <a href="#" ><img src="{{ STATIC_URL }}img/PDF_64.png"></a>
+                    <a href="#" ><img src="{{ STATIC_URL }}img/MP3_64.png"></a>
+                    <a href="#" ><img src="{{ STATIC_URL }}img/XML_64.png"></a>
+				</div>
+            </p>
+        </div>
+        <div id="preview_quiz" class="fancybox-popup">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu risus diam, eget iaculis arcu. Fusce id enim quam, vel feugiat turpis. Etiam leo nibh, egestas sed pulvinar dignissim, vulputate nec ante. Etiam nulla
+            </p>
+            <div class="buttons">
+                <a class="yes" href="#">Thank You.</a>
+            </div>
+        </div>
+    </div>
+	
