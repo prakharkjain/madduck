@@ -218,6 +218,13 @@ ul.quizOverView li.buttons a {
     background: #F5F5F5;
 }
 
+ul.details li.buttons a.details {
+    padding: 7px;
+    color: #666666;
+    border: 1px #000000 solid;
+    background: #e0e0e0;
+}
+
 ul.quizOverView li.buttons a:hover {
     background: #e0e0e0;
 }

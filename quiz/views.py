@@ -41,6 +41,7 @@ def quiz_view(request, quiz_id):
     return render_to_response('quiz/view_quiz.html', {
               "quizobj" : quiz,
               "questions" : questions,
+              "selected_button" : "details",
             }, context_instance=RequestContext(request))
 
 @login_required
@@ -58,10 +59,12 @@ def quiz_create(request):
         quiz_form = QuizForm()
         return render_to_response('quiz/create_quiz.html', {
                     "quiz_form" : quiz_form,
+                    "selected_button" : "details",
                 }, context_instance=RequestContext(request))
         
     return render_to_response('quiz/create_quiz.html', {
                 "quiz_form" : quiz_form,
+                "selected_button" : "details",
             }, context_instance=RequestContext(request))
 
 @login_required
@@ -79,10 +82,12 @@ def quiz_update(request, quiz_id):
         return render_to_response("quiz/update_quiz.html", {
                     "quiz_form": quiz_form,
                     "quizobj": quiz,
+                    "selected_button" : "details",
                 }, context_instance=RequestContext(request))
     #generic case
     return render_to_response("quiz/update_quiz.html", {
                 "quiz_form": quiz_form,
+                "selected_button" : "details",
             }, context_instance=RequestContext(request))
 
 @login_required
@@ -130,8 +135,11 @@ def question_view(request, quiz_id, question_id):
     """ opens the selected question in the preview mode. """
     """ update the quiz, given its id. """
     quiz = Quiz.objects.get(id=quiz_id)
+    
+    #two unnecessary sql queries.
     question = Question.objects.get(id=question_id)
     questions = quiz.question_set.all()
+    
     if request.method == "POST":
         question_form = QuestionForm(request.POST, request.FILES, instance=question)
         question_form.is_update = True
@@ -143,13 +151,17 @@ def question_view(request, quiz_id, question_id):
         question_form = QuestionForm(instance=question)
         return render_to_response("quiz/create_question.html", {
                     "question_form" : question_form,
-                    "selected_question" : question,
+                    
+                    ##this is a redundant field, passed here; must be removed.
+                    "selected_question": question,
                     "questions" : questions,
                     "quizobj" : quiz,
                 }, context_instance=RequestContext(request))
     #generic case
     return render_to_response("quiz/create_question.html", {
                 "question_form" : question_form,
+                
+                ##this is a redundant field, passed here; must be removed.
                 "selected_question" : question,
                 "questions" : questions,
                 "quizobj" : quiz,
