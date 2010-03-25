@@ -55,18 +55,16 @@ def quiz_create(request):
           
     #GET Request
     else:
-         quiz_form = QuizForm()
-         return render_to_response('quiz/create_quiz.html', {
-                     "quiz_form" : quiz_form,
-                     "questions" : range(20)
-                 }, context_instance=RequestContext(request))
-    
+        quiz_form = QuizForm()
+        return render_to_response('quiz/create_quiz.html', {
+                    "quiz_form" : quiz_form,
+                    "questions" : range(20)
+                }, context_instance=RequestContext(request))
+        
     return render_to_response('quiz/create_quiz.html', {
-                 "quiz_form" : quiz_form,
-                 "questions" : range(20)
+                "quiz_form" : quiz_form,
+                "questions" : range(20)
             }, context_instance=RequestContext(request))
-
-#marked for removal; this is a temporary function.
 
 @login_required
 def quiz_update(request, quiz_id):
@@ -82,7 +80,7 @@ def quiz_update(request, quiz_id):
         quiz_form = QuizForm(instance=quiz)
         return render_to_response("quiz/update_quiz.html", {
                     "quiz_form": quiz_form,
-                    "quiz": quiz,
+                    "quizobj": quiz,
                 }, context_instance=RequestContext(request))
     #generic case
     return render_to_response("quiz/update_quiz.html", {
@@ -98,7 +96,9 @@ def quiz_delete(request, quiz_id):
     
     return HttpResponseRedirect(reverse("quiz.views.quiz_view_all"))
 
+
 """ all helper methods related to question creation start from here."""
+
 @login_required
 def question_new(request, quiz_id):
     """ returns a template to create a new quiz. """
@@ -108,7 +108,7 @@ def question_new(request, quiz_id):
        question_form = QuestionForm(request.POST, request.FILES)
        if question_form.is_valid():
           new_question = question_form.save(commit=False)
-          new_question.qQuiz = Quiz.objects.get(id=quiz_id)
+          new_question.qQuiz = quiz
           new_question.save()
           return HttpResponseRedirect(reverse("quiz.views.question_new", args=[quiz_id]))
           
@@ -118,13 +118,13 @@ def question_new(request, quiz_id):
          return render_to_response('quiz/create_question.html', {
                      "question_form" : question_form,
                      "questions" : questions,
-                     "quiz" : quiz
+                     "quizobj" : quiz
                 }, context_instance=RequestContext(request))
     
     return render_to_response('quiz/create_question.html', {
                  "question_form" : question_form,
                  "questions" : questions,
-                 "quiz" : quiz,
+                 "quizobj" : quiz,
            }, context_instance=RequestContext(request))
 
 @login_required
