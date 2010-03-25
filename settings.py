@@ -215,4 +215,4 @@ try:
 except ImportError:
     pass
 
-CACHE_BACKEND = "locmem:///"
+#CACHE_BACKEND = "locmem:///"

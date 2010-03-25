@@ -1,7 +1,7 @@
     <div class="quizOverViewContainer">
         <ul class="quizOverView">
             <li class="capsule buttons"><a class="left" href="{{ quizobj.get_absolute_url }}" title="quiz details">details</a></li>
-            {% for question in questions%}
+            {% for question in questions %}
                 <li class="capsule">
                     <a href="{{ question.get_absolute_url }}" class="question" title="{{ forloop.counter }}, not completed yet.">{{ forloop.counter }}</a>
                     <div class="status"></div>

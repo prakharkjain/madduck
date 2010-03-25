@@ -58,12 +58,10 @@ def quiz_create(request):
         quiz_form = QuizForm()
         return render_to_response('quiz/create_quiz.html', {
                     "quiz_form" : quiz_form,
-                    "questions" : range(20)
                 }, context_instance=RequestContext(request))
         
     return render_to_response('quiz/create_quiz.html', {
                 "quiz_form" : quiz_form,
-                "questions" : range(20)
             }, context_instance=RequestContext(request))
 
 @login_required
@@ -118,7 +116,7 @@ def question_new(request, quiz_id):
          return render_to_response('quiz/create_question.html', {
                      "question_form" : question_form,
                      "questions" : questions,
-                     "quizobj" : quiz
+                     "quizobj" : quiz,
                 }, context_instance=RequestContext(request))
     
     return render_to_response('quiz/create_question.html', {
