@@ -143,12 +143,14 @@ def question_view(request, quiz_id, question_id):
         question_form = QuestionForm(instance=question)
         return render_to_response("quiz/create_question.html", {
                     "question_form" : question_form,
+                    "selected_question" : question,
                     "questions" : questions,
                     "quizobj" : quiz,
                 }, context_instance=RequestContext(request))
     #generic case
     return render_to_response("quiz/create_question.html", {
                 "question_form" : question_form,
+                "selected_question" : question,
                 "questions" : questions,
                 "quizobj" : quiz,
             }, context_instance=RequestContext(request))

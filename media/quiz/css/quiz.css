@@ -190,6 +190,14 @@ ul.quizOverView li.capsule a.question {
     border-right: 1px #DDDDDD solid;
 }
 
+ul.quizOverView li.capsule a.selected {
+    height: 20px;
+    padding: 7px 6px;
+    margin-left: -1px;
+    border: 1px #000000 solid;
+    background: #dddddd;
+}
+
 ul.quizOverView li.capsule div.status {
     padding: 3px;
     background: green;
