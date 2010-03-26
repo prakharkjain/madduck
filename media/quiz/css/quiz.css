@@ -194,7 +194,7 @@ ul.quizOverView li.capsule a.selected {
     height: 20px;
     padding: 7px 6px;
     margin-left: -1px;
-    border: 1px #000000 solid;
+    border: 2px #000000 solid;
     background: #dddddd;
 }
 
@@ -290,7 +290,7 @@ div.questionEditorContainer textarea.answer {
 	height: 70px;
 }
 
-/* fancybox-pop styling; to be optimized; removed*/
+/* fancybox-pop styling starts-here; to be optimized; removed*/
 div.fancybox-popup {
     width: 400px;
     height: 400px;
@@ -303,4 +303,5 @@ div#download_quiz {
 div.fancybox-popup .download-formats a {
     margin: 20px;
 }
+/* fancybox-pop styling ends-here; */
 
