@@ -7,6 +7,10 @@
                     <div class="status"></div>
                 </li>
             {% endfor %}
+            <li class="capsule">
+                <a href="{% url question_new quizobj.id %}" class="question" title="add a new question."><img src="{{ STATIC_URL }}img/add.png"></a>
+                <div class="status"></div>
+            </li>
             <li class="capsule buttons action"><a class="right download" href="#download_quiz" title="download the quiz">download</a></li>
             <li class="capsule buttons action"><a class="publish" href="#" title="publish the quiz">publish</a></li>
             <li class="capsule buttons action"><a class="left preview" href="#preview_quiz" title="see preview of the quiz">preview</a></li>
